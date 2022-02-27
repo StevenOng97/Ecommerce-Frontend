@@ -1,0 +1,23 @@
+@import "../../scss/animation";
+@import "../../scss/variables";
+
+.zoom-in-card {
+  min-height: 300px;
+  height: auto;
+  cursor: pointer;
+
+  transform: scale(0.9);
+  background-size: 100% !important;
+  border-radius: 8px;
+  &:hover {
+    animation-name: zoomIn;
+    -webkit-animation-name: zoomIn;
+    animation-duration: 0.3s !important;
+  }
+  h4 {
+    background: $main-color;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+}

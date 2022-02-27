@@ -1,0 +1,20 @@
+@import '../../../../../../scss/variables';
+
+.category-card {
+  min-width: 120px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.432);
+  color: #000;
+  transition: all .3s;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+  &:last-child  {
+    border: 1px solid rgba(0, 0, 0, 0.432);
+  }
+  &:hover {
+    background: $main-color;
+    color: #fff;
+    border: 1px solid transparent;
+  }
+}

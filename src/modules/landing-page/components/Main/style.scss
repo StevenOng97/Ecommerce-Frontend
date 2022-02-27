@@ -1,0 +1,21 @@
+.main {
+  > div {
+    height: 100%;
+    gap: 15px;
+    > h1 {
+      font-size: 72px;
+    }
+    > p, h1 {
+      width: 50%;
+      word-break: break-word;
+    }
+
+    button {
+      width: 140px;
+    }
+  }
+  background: url('../../../../assets/banner.jpg') no-repeat center center; 
+  height: calc(100vh - 88px);
+  margin-top: 88px;
+  background-size: cover;
+}

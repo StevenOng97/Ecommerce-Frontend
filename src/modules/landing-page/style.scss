@@ -1,0 +1,21 @@
+@import '../../scss/variables';
+
+.section-title {
+  text-align: center;
+  position: relative;
+  &:after {
+    display: block;
+    position: absolute;
+    top: calc(100% + 13px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background: $main-color;
+    content: "";
+  }
+}
+
+.section {
+  margin: 2rem 0;
+}
