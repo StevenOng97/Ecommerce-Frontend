@@ -15,7 +15,7 @@ const LandingPage = () => {
   };
 
   const getItemToCart = (_id: string) => {
-    // fetch api to draft the product
+    // fetch api to draft the product 123
     console.log(`item with id: ${_id} already get into cart`);
   }
 
