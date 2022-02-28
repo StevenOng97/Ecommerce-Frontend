@@ -1,0 +1,24 @@
+@import "../../../../../../scss/variables";
+
+$columns: 4;
+$marginLeft: 20px;
+
+.benefit-card {
+  width: calc(calc(100% / $columns) - $marginLeft);
+  margin-left: $marginLeft;
+  gap: 15px;
+  .icon {
+    color: $main-color;
+    width: 30px;
+    height: 30px;
+  }
+  .text-wrapper {
+    p {
+      font-size: 14px;
+    }
+    p,
+    h6 {
+      margin-bottom: 0;
+    }
+  }
+}

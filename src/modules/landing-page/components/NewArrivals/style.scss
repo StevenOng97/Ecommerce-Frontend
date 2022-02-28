@@ -1,6 +1,12 @@
+@import "../../../../scss/animation";
 .new-arrivals__section {
   .products-wrapper {
     flex-wrap: wrap;
-    row-gap: 10px;
+    row-gap: 20px;
+    opacity: 0;
+  }
+  .products-wrapper.animated {
+    animation-name: fadeInUp;
+    opacity: 1;
   }
 }

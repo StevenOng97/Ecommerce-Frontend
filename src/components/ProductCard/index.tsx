@@ -28,7 +28,7 @@ const ProductCard = ({ card }: any) => {
         </button>
       </div>
       <img src={image} alt="product" />
-      <p className="fw-bold text-center">{label}</p>
+      <p className="fw-bold text-center truncate">{label}</p>
       <div className="price-wrapper d-flex justify-content-center">
         {priceAfterSale && (
           <span className="price-after-sale">${priceAfterSale}</span>

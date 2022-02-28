@@ -1,5 +1,6 @@
 export interface Card {
   label: string;
+  value?: string;
   _id?: string;
   image?: any;
   isNew?: boolean;

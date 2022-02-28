@@ -1,7 +1,10 @@
+@import "../../../../scss/animation";
 $columns: 3;
 $marginLeft: 20px;
 
 .category__section {
+  opacity: 0;
+
   .container {
     > div {
       width: calc(calc(100% / $columns) - $marginLeft);
@@ -10,4 +13,8 @@ $marginLeft: 20px;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
   }
+}
+
+.category__section.animated {
+  animation-name: fadeInUp;
 }

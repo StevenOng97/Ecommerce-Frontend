@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useOnScreen = (ref: any, rootMargin = '0px', threshold = 1.0, trackOnce: boolean = false) => {
+const useOnScreen = (ref: any, rootMargin = '0px', threshold = 1.0, trackOnce: boolean = true) => {
   const [isIntersecting, setIntersecting] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
