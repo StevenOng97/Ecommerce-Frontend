@@ -1,40 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import GoogleMapReact from 'google-map-react';
-import { Constants } from '../../../../constants/constant';
-import Marker from './components/Marker';
+import { useState } from 'react';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import './style.scss';
+import { faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface GoogleMapsProps {
-  center: {
-    lat: number;
-    lng: number;
-  };
+  latitude: number;
+  longitude: number;
   zoom: number;
 }
 
 const LocationSection = () => {
-  const [googleMapsProps, setMapsProps] = useState<GoogleMapsProps>({
-    center: { lat: 0, lng: 0 },
-    zoom: 0,
+  const [selectingMarker, setSelectingMaker] = useState<boolean | null>(null);
+  const [viewport, setViewport] = useState<GoogleMapsProps>({
+    latitude: 10.77653,
+    longitude: 106.700981,
+    zoom: 8,
   });
-
-  useEffect(() => {
-    const mapsProps = { center: { lat: 59.95, lng: 30.33 }, zoom: 11 };
-    setMapsProps(mapsProps);
-  }, []);
 
   return (
     <div className="location-section section">
       <h2 className="section-title">Our Location</h2>
       <div className="container mt-5">
-        <div style={{ height: '300px', width: '100%' }}>
-          <GoogleMapReact
-            defaultCenter={googleMapsProps.center}
-            defaultZoom={googleMapsProps.zoom}
-            bootstrapURLKeys={{ key: Constants.googleMapsApiKey }}
-          >
-            <Marker lat={59.955413} lng={30.337844} text={'Kreyser Avrora'} />
-          </GoogleMapReact>
-        </div>
+        <ReactMapGL
+          initialViewState={{
+            ...viewport,
+          }}
+          style={{ width: '100%', height: '50vh' }}
+          mapStyle="mapbox://styles/gianguyen221197/cl0899o7n006m15ny5a51fvea"
+          mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+          onMove={(viewport) => {
+            setViewport(viewport.viewState);
+          }}
+        >
+          <Marker longitude={106.700981} latitude={10.77653} anchor="bottom">
+            <FontAwesomeIcon
+              icon={faMapMarker}
+              size="3x"
+              className="marker"
+              onClick={(e) => {
+                console.log('clicking');
+                console.log(selectingMarker);
+                setSelectingMaker(true);
+              }}
+            />
+          </Marker>
+          {selectingMarker && (
+            <Popup
+              longitude={106.700981}
+              latitude={10.77653}
+              onOpen={() => {
+                console.log('On Open');
+              }}
+              // onClose={(e) => {
+              //   console.log("Closing");
+              //   setSelectingMaker(null);
+              // }}
+              anchor="bottom"
+              offset={20}
+              closeOnClick={true}
+            >
+              <div>232 Hai Ba Trung P1 Q1</div>
+            </Popup>
+          )}
+        </ReactMapGL>
       </div>
     </div>
   );
