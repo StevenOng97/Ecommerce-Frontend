@@ -23,9 +23,7 @@ const LocationSection = () => {
       <h2 className="section-title">Our Location</h2>
       <div className="container mt-5">
         <ReactMapGL
-          initialViewState={{
-            ...viewport,
-          }}
+          {...viewport}
           style={{ width: '100%', height: '50vh' }}
           mapStyle="mapbox://styles/gianguyen221197/cl0899o7n006m15ny5a51fvea"
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -39,8 +37,7 @@ const LocationSection = () => {
               size="3x"
               className="marker"
               onClick={(e) => {
-                console.log('clicking');
-                console.log(selectingMarker);
+                e.preventDefault();
                 setSelectingMaker(true);
               }}
             />
@@ -49,16 +46,12 @@ const LocationSection = () => {
             <Popup
               longitude={106.700981}
               latitude={10.77653}
-              onOpen={() => {
-                console.log('On Open');
+              onClose={() => {
+                setSelectingMaker(null);
               }}
-              // onClose={(e) => {
-              //   console.log("Closing");
-              //   setSelectingMaker(null);
-              // }}
               anchor="bottom"
               offset={20}
-              closeOnClick={true}
+              closeOnClick={false}
             >
               <div>232 Hai Ba Trung P1 Q1</div>
             </Popup>

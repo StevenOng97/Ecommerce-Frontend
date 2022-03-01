@@ -1,4 +1,4 @@
-import React, { ElementRef, useRef } from 'react';
+import React, { useRef } from 'react';
 import './style.scss';
 import card1 from '../../../../assets/card3.jpg';
 import card2 from '../../../../assets/card2.jpg';
