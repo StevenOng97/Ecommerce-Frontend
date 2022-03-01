@@ -1,6 +1,5 @@
 @keyframes fadeInUp {
   from {
-    opacity: 0;
     transform: translate3d(0, 40px, 0);
   }
 
@@ -12,9 +11,31 @@
 
 @-webkit-keyframes fadeInUp {
   from {
-    opacity: 0;
-
     transform: translate3d(0, 40px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes easeIn {
+  from {
+    // transform: translate3d(40px, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transition: opacity 1s ease-in;
+    // transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes easeIn {
+  from {
+    transform: translate3d(40px, 0, 0);
   }
 
   to {
@@ -40,18 +61,6 @@
 
   to {
     opacity: 1;
-  }
-}
-
-@keyframes zoomIn {
-  to {
-    transform: scale(1);
-  }
-}
-
-@-webkit-keyframes zoomIn {
-  to {
-    transform: scale(1);
   }
 }
 

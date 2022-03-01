@@ -50,7 +50,10 @@ const DealSection = () => {
               <span className="text-black">MINS</span>
             </div>
             <div className="timer">
-              <span key={sec} className="animated">{sec}</span>
+              <span key={sec} className="animated">
+                {sec}
+              </span>
+
               <span className="text-black">SEC</span>
             </div>
           </div>

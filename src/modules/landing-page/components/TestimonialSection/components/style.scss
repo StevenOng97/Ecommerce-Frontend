@@ -1,0 +1,38 @@
+@import "../../../../../scss/variables";
+$columns: 3;
+$marginLeft: 20px;
+$truncate-lines: 5;
+.feedback-card {
+  .star-wrapper {
+    .star {
+      margin-left: 4px;
+    }
+    .active-star {
+      color: $main-color;
+    }
+  }
+  width: calc(calc(100% / $columns) - $marginLeft);
+  margin-left: $marginLeft;
+  border: 1px solid #efefef;
+  border-radius: 8px;
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 7px 0px;
+  padding: 48px 72px;
+  display: flex;
+  flex-direction: column;
+  p {
+    -webkit-line-clamp: $truncate-lines;
+  }
+  .avatar-wrapper {
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+  .user-information-wrapper {
+    .user-job-title {
+      color: $sliver;
+      font-size: 14px;
+    }
+  }
+}
