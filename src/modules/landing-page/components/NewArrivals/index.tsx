@@ -120,8 +120,10 @@ const NewArrivals = ({ cardAction, getItemToCart }: any) => {
         <div className="category-card-wrapper d-flex justify-content-center mt-5">
           {renderCategoryCards()}
         </div>
-        <div className={className} ref={containerRef}>
-          {renderProduct()}
+        <div className="fix-margin">
+          <div className={className} ref={containerRef}>
+            {renderProduct()}
+          </div>
         </div>
       </div>
     </div>

@@ -99,3 +99,10 @@ $truncate-lines: 3;
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  $columns: 3;
+  .product-card {
+    width: calc(calc(100% / $columns) - $marginLeft);
+  }
+}
