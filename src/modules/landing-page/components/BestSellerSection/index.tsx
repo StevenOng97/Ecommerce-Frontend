@@ -15,6 +15,7 @@ import {
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import BenefitCard from './components/BenefitCard';
+
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
   { width: 300, itemsToShow: 2 },
