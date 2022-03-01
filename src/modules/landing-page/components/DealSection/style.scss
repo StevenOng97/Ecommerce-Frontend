@@ -36,9 +36,9 @@ $timerColumns: 4;
         align-items: center;
         flex-direction: column;
         .animated {
-          animation-name: fadeInUp;
-          -webkit-animation-name: fadeInUp;
-          animation-duration: 0.2s !important;
+          animation-name: easeIn;
+          -webkit-animation-name: easeIn;
+          animation-duration: 0.3s !important;
         }
         span {
           font-size: 24px;

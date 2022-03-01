@@ -9,10 +9,10 @@
   transform: scale(0.9);
   background-size: 100% !important;
   border-radius: 8px;
+  transition: .3s all ease-in-out;
+  
   &:hover {
-    animation-name: zoomIn;
-    -webkit-animation-name: zoomIn;
-    animation-duration: 0.3s !important;
+    transform: scale(1);
   }
   h4 {
     background: $main-color;

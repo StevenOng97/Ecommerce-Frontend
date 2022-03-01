@@ -2,8 +2,10 @@ import BestSellerSection from './components/BestSellerSection';
 import Category from './components/CategorySection';
 import DealSection from './components/DealSection';
 import Header from './components/Header';
+import LocationSection from './components/LocationSection';
 import Main from './components/Main';
 import NewArrivals from './components/NewArrivals';
+import Testimonials from './components/TestimonialSection';
 import './style.scss';
 
 const LandingPage = () => {
@@ -27,6 +29,8 @@ const LandingPage = () => {
       <NewArrivals cardAction={cardAction} getItemToCart={getItemToCart} />
       <DealSection />
       <BestSellerSection getItemToCart={getItemToCart} />
+      <Testimonials />
+      <LocationSection />
     </div>
   );
 };

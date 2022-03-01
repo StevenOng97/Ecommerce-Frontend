@@ -7,6 +7,14 @@ import item2 from '../../../../assets/item2.png';
 import item3 from '../../../../assets/item3.png';
 import item4 from '../../../../assets/item4.png';
 import item5 from '../../../../assets/item5.png';
+import {
+  faTruck,
+  faMoneyBill1,
+  faUndo,
+  faClock,
+  IconDefinition,
+} from '@fortawesome/free-solid-svg-icons';
+import BenefitCard from './components/BenefitCard';
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -14,6 +22,12 @@ const breakPoints = [
   { width: 550, itemsToShow: 3 },
   { width: 768, itemsToShow: 5 },
 ];
+
+interface Delivery {
+  title: string;
+  icon: IconDefinition;
+  text: string;
+}
 
 const BestSellerSection = ({ getItemToCart }: any) => {
   const productsFromApi: Card[] = [
@@ -100,9 +114,38 @@ const BestSellerSection = ({ getItemToCart }: any) => {
     };
   });
 
+  const benefits: Delivery[] = [
+    {
+      icon: faTruck,
+      title: 'FREE SHIPPING',
+      text: 'Suffered Alteration in Some Form',
+    },
+    {
+      icon: faMoneyBill1,
+      title: 'CACH ON DELIVERY',
+      text: 'The Internet Tend To Repeat',
+    },
+    {
+      icon: faUndo,
+      title: '45 DAYS RETURN',
+      text: 'Making it Look Like Readable',
+    },
+    {
+      icon: faClock,
+      title: 'OPENING ALL WEEK',
+      text: '8AM - 09PM',
+    },
+  ];
+
   const renderProduct = (): JSX.Element[] => {
     return products.map((product, i) => {
       return <ProductCard card={product} key={i} />;
+    });
+  };
+
+  const renderBenefits = (): JSX.Element[] => {
+    return benefits.map((benefit, i) => {
+      return <BenefitCard card={benefit} key={i} />;
     });
   };
 
@@ -114,6 +157,10 @@ const BestSellerSection = ({ getItemToCart }: any) => {
         <Carousel isRTL={false} breakPoints={breakPoints} className="mt-5">
           {renderProduct()}
         </Carousel>
+
+        <div className="delivery-area d-flex mt-5">
+          {renderBenefits()}
+        </div>
       </div>
     </div>
   );

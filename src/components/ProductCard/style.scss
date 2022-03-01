@@ -3,6 +3,7 @@
 $columns: 5;
 $marginLeft: 20px;
 $success-color: #51a042;
+$truncate-lines: 3;
 
 .product-card {
   border: 1px solid #e5e5e5;
@@ -13,15 +14,10 @@ $success-color: #51a042;
   padding: 2rem;
   display: flex;
   margin-left: $marginLeft;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
   flex-direction: column;
   p {
-    word-break: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    -webkit-line-clamp: $truncate-lines;
   }
   .image__overlay {
     position: absolute;

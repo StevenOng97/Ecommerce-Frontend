@@ -1,5 +1,6 @@
 export interface Card {
   label: string;
+  value?: string;
   _id?: string;
   image?: any;
   isNew?: boolean;
@@ -9,4 +10,12 @@ export interface Card {
   stock?: string;
   sale?: string;
   action?: () => any;
+}
+
+export interface FeedbackCard {
+  text: string;
+  avatar: any;
+  userName: string;
+  jobTitle: string;
+  star: number;
 }

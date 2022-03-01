@@ -7,22 +7,31 @@ import item2 from '../../../../assets/item2.png';
 import item3 from '../../../../assets/item3.png';
 import item4 from '../../../../assets/item4.png';
 import item5 from '../../../../assets/item5.png';
+import { useRef } from 'react';
+import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const NewArrivals = ({ cardAction, getItemToCart }: any) => {
+  const containerRef: any = useRef(null);
+
+  const onScreen = useOnScreen(containerRef, '-200px', 0.1);
+
   const categories: Card[] = [
     {
       label: 'ALL',
+      value: '',
       action: () => cardAction(''),
     },
     {
       label: "WOMEN'S",
+      value: 'women',
       action: () => cardAction('women'),
     },
     {
       label: "ACCESSORIES'S",
+      value: 'accessory',
       action: () => cardAction('accessory'),
     },
-    { label: "MEN'S", action: () => cardAction('men') },
+    { label: "MEN'S", value: 'men', action: () => cardAction('men') },
   ];
 
   const productsFromApi: Card[] = [
@@ -100,6 +109,10 @@ const NewArrivals = ({ cardAction, getItemToCart }: any) => {
     });
   };
 
+  const className = onScreen
+    ? 'products-wrapper d-flex mt-3 animated'
+    : 'products-wrapper d-flex mt-3';
+
   return (
     <div className="new-arrivals__section section">
       <div className="container">
@@ -107,7 +120,9 @@ const NewArrivals = ({ cardAction, getItemToCart }: any) => {
         <div className="category-card-wrapper d-flex justify-content-center mt-5">
           {renderCategoryCards()}
         </div>
-        <div className="products-wrapper d-flex mt-3">{renderProduct()}</div>
+        <div className={className} ref={containerRef}>
+          {renderProduct()}
+        </div>
       </div>
     </div>
   );

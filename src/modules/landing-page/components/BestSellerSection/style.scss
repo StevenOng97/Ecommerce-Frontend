@@ -1,31 +1,11 @@
 @import "../../../../scss/variables";
 .best-seller__section {
-  .rec-arrow {
-    &:hover,
-    &:focus {
-      background-color: $main-color !important;
-    }
-  }
-  .rec-arrow:disabled {
-    &:hover {
-      background-color: transparent !important;
-    }
-  }
-  .rec-dot {
-    &:focus,
-    &:hover {
-      box-shadow: 0 0 1px 3px rgba(250, 171, 68, 0.651);
-    }
-    &_active {
-      background-color: $main-color !important;
-      box-shadow: 0 0 1px 3px transparent;
-      &:focus {
-        box-shadow: 0 0 1px 3px transparent;
-      }
-    }
-  }
   .product-card {
     width: calc(100% - 20px);
     margin-left: 0;
+  }
+  .delivery-area {
+    background: #f2f2f2;
+    padding: 12px;
   }
 }
