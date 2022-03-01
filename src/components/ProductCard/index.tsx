@@ -1,7 +1,7 @@
 import './style.scss';
 const ProductCard = ({ card }: any) => {
   const {
-    sale = '',
+    sale = "",
     isNew,
     priceAfterSale,
     price,
