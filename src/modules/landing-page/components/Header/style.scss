@@ -1,4 +1,6 @@
 @import "../../../../scss/variables.scss";
+@import "../../../../scss/animation.scss";
+
 .header {
   background: #fff;
   box-shadow: 0 0 16px rgb(0 0 0 / 15%);
@@ -8,6 +10,18 @@
   top: 0;
   width: 100%;
   z-index: 999;
+  .total {
+    margin-left: 20px;
+    padding: 16px 0;
+    padding-left: 36px;
+    background: #fff;
+    align-items: center;
+    justify-content: space-between;
+    h6 {
+      margin-right: 36px;
+      text-align: right;
+    }
+  }
   .logo-wrapper {
     a {
       color: #000;
@@ -42,6 +56,20 @@
     gap: 20px;
     display: flex;
     align-items: center;
+    .cart-wrapper {
+      max-height: 600px;
+      min-height: 600px;
+      overflow: auto;
+      min-width: 600px;
+      max-width: 600px;
+      right: 0;
+      top: 100%;
+      border-radius: 4px;
+      &.animated {
+        animation-name: easeIn;
+        animation-duration: .3s;
+      }
+    }
     .cart {
       display: inline-block;
       text-align: center;

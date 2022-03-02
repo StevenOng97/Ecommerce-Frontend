@@ -19,8 +19,23 @@ $truncate-lines: 5;
   padding: 48px 72px;
   display: flex;
   flex-direction: column;
-  p {
+  blockquote {
     -webkit-line-clamp: $truncate-lines;
+
+    line-height: 1.5;
+    margin: 0;
+
+    &::before {
+      font-family: "Gelasio", serif;
+      font-style: italic;
+      font-style: bold;
+      content: "\201c";
+      font-size: 100px;
+      display: block;
+      margin-bottom: -70px;
+      margin-top: -30px;
+      margin-left: -20px;
+    }
   }
   .avatar-wrapper {
     img {

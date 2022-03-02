@@ -50,7 +50,7 @@ const LocationSection = () => {
                 setSelectingMaker(null);
               }}
               anchor="bottom"
-              offset={20}
+              offset={40}
               closeOnClick={false}
             >
               <div>232 Hai Ba Trung P1 Q1</div>

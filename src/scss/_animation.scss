@@ -35,11 +35,37 @@
 
 @-webkit-keyframes easeIn {
   from {
-    transform: translate3d(40px, 0, 0);
+    opacity: 0;
+  }
+
+  to {
+    transition: opacity 1s ease-in;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInFromLeft {
+  from {
+    transform: translate3d(-50px, -50px, 0);
+    opacity: 0;
   }
 
   to {
     transform: translate3d(0, 0, 0);
+    transition: opacity transform 1s ease-in;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeInFromLeft {
+  from {
+    transform: translate3d(-50px, -50px, 0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    transition: opacity transform 1s ease-in;
     opacity: 1;
   }
 }

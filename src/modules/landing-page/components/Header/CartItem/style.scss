@@ -1,0 +1,36 @@
+@import '../../../../../scss/variables';
+$columns: 3;
+$marginLeft: 20px;
+
+.cart-item-wrapper {
+  flex: 1;
+
+  padding: 16px;
+  background: white;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all .3s;
+  &:hover {
+    background: $main-color;
+    color: #fff;
+  }
+  > div {
+    margin-left: $marginLeft;
+    &.item {
+      &-image-wrapper {
+        flex-shrink: 0;
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      &-information {
+        flex: 1;
+      }
+      &-price {
+        flex-shrink: 0;
+        margin-right: $marginLeft;
+      }
+    }
+  }
+}

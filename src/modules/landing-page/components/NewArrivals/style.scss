@@ -6,7 +6,6 @@
     opacity: 0;
   }
   .products-wrapper.animated {
-    animation-name: fadeInUp;
-    opacity: 1;
+    animation-name: easeIn;
   }
 }

@@ -15,6 +15,8 @@ import {
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import BenefitCard from './components/BenefitCard';
+import { useRef } from 'react';
+import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -114,6 +116,10 @@ const BestSellerSection = ({ getItemToCart }: any) => {
     };
   });
 
+  const containerRef: any = useRef(null);
+
+  const onScreen = useOnScreen(containerRef, '-200px', 0.1);
+
   const benefits: Delivery[] = [
     {
       icon: faTruck,
@@ -149,17 +155,21 @@ const BestSellerSection = ({ getItemToCart }: any) => {
     });
   };
 
+  const className = onScreen
+  ? 'content-wrapper animated'
+  : 'content-wrapper';
+
   return (
     <div className="best-seller__section section">
       <div className="container">
         <h2 className="section-title">Best Sellers</h2>
 
-        <Carousel isRTL={false} breakPoints={breakPoints} className="mt-5">
-          {renderProduct()}
-        </Carousel>
+        <div className={className} ref={containerRef}>
+          <Carousel isRTL={false} breakPoints={breakPoints} className="mt-5">
+            {renderProduct()}
+          </Carousel>
 
-        <div className="delivery-area d-flex mt-5">
-          {renderBenefits()}
+          <div className="delivery-area d-flex mt-5">{renderBenefits()}</div>
         </div>
       </div>
     </div>

@@ -1,8 +1,17 @@
+@import "../../../../scss/animation";
+
 .testimonial__section {
   .card-wrapper {
     row-gap: 20px;
   }
   .rec-arrow-right {
     margin-left: 20px !important;
+  }
+
+  .carousel-wrapper {
+    opacity: 0;
+    &.animated {
+      animation-name: fadeInFromLeft;
+    }
   }
 }
