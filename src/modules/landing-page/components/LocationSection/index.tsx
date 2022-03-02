@@ -23,9 +23,7 @@ const LocationSection = () => {
       <h2 className="section-title">Our Location</h2>
       <div className="container mt-5">
         <ReactMapGL
-          initialViewState={{
-            ...viewport,
-          }}
+          {...viewport}
           style={{ width: '100%', height: '50vh' }}
           mapStyle="mapbox://styles/gianguyen221197/cl0899o7n006m15ny5a51fvea"
           mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
@@ -39,8 +37,7 @@ const LocationSection = () => {
               size="3x"
               className="marker"
               onClick={(e) => {
-                console.log('clicking');
-                console.log(selectingMarker);
+                e.preventDefault();
                 setSelectingMaker(true);
               }}
             />
