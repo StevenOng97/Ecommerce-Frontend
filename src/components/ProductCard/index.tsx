@@ -3,7 +3,7 @@ import './responsive.scss';
 
 const ProductCard = ({ card }: any) => {
   const {
-    sale = '',
+    sale = "",
     isNew,
     priceAfterSale,
     price,

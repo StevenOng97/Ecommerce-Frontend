@@ -15,7 +15,7 @@ const FeedbackCard = ({ card }: any) => {
   return (
     <div className="feedback-card">
       <div className="star-wrapper d-flex mb-3 justify-content-center">{renderStar()}</div>
-      <p className="mb-3 truncate">{card.text}</p>
+      <blockquote className="mb-3 truncate">{card.text}</blockquote>
       <div className="d-flex align-items-center mt-auto">
         <div className="avatar-wrapper me-3">
           <img src={card.avatar} className="avatar" alt="avatar" />

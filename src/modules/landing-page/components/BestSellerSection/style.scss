@@ -1,4 +1,4 @@
-@import "../../../../scss/variables";
+@import "../../../../scss/animation";
 .best-seller__section {
   .product-card {
     width: calc(100% - 20px);
@@ -7,5 +7,12 @@
   .delivery-area {
     background: #f2f2f2;
     padding: 12px;
+  }
+
+  .content-wrapper {
+    opacity: 0;
+  }
+  .content-wrapper.animated {
+    animation-name: easeIn;
   }
 }

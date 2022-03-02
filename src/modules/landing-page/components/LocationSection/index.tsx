@@ -46,11 +46,11 @@ const LocationSection = () => {
             <Popup
               longitude={106.700981}
               latitude={10.77653}
-              onClose={(e) => {
+              onClose={() => {
                 setSelectingMaker(null);
               }}
               anchor="bottom"
-              offset={20}
+              offset={40}
               closeOnClick={false}
             >
               <div>232 Hai Ba Trung P1 Q1</div>

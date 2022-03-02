@@ -15,7 +15,6 @@ import avt13 from '../../../../assets/mock-user-avatar/13.jpg';
 import avt14 from '../../../../assets/mock-user-avatar/14.jpg';
 import avt15 from '../../../../assets/mock-user-avatar/15.jpg';
 import avt16 from '../../../../assets/mock-user-avatar/16.jpg';
-import avt17 from '../../../../assets/mock-user-avatar/17.jpg';
 
 const feedbackCard: FeedbackCard[] = [
   {

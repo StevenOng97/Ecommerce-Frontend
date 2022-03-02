@@ -71,10 +71,10 @@
   transition: all 0.3s ease;
   font-size: 1.1rem !important;
   color: white !important;
-  width: 1.7rem !important;
-  height: 1.7rem !important;
-  min-width: 1.7rem !important;
-  line-height: 1.7rem !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  min-width: 2.5rem !important;
+  line-height: 2.5rem !important;
 }
 
 .rec-arrow:disabled {
@@ -83,4 +83,17 @@
 
 .rec-item-wrapper {
   height: 100%;
+}
+
+.mapboxgl-popup-content {
+  padding: 16px;
+  border-radius: 4px;
+  .mapboxgl-popup-close-button {
+    font-size: 18px;
+    transition: all 0.3s;
+    &:hover {
+      color: #fff;
+      background-color: $main-color;
+    }
+  }
 }

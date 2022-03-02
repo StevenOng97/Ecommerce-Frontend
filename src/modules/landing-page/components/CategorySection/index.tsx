@@ -1,4 +1,4 @@
-import React, { ElementRef, useRef } from 'react';
+import { useRef } from 'react';
 import './style.scss';
 import './responsive.scss';
 
