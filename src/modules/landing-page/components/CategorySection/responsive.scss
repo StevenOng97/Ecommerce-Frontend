@@ -1,0 +1,21 @@
+@import "../../../../scss/variables.scss";
+@import "../../../../scss/animation";
+
+
+
+@media screen and (max-width: $ipad){
+.category__section {
+
+  
+  .container {
+  display: flex;
+  flex-direction: column;
+      > div {
+      background-size:cover!important;
+      width: calc(100% - $marginLeft);
+    }
+  }
+}
+
+}
+

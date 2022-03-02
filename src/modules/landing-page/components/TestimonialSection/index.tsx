@@ -3,6 +3,7 @@ import FeedbackCard from './components/FeedbackCard';
 import feedbackCard from './mockData';
 import Carousel from 'react-elastic-carousel';
 import './style.scss';
+import './responsive.scss';
 
 const Testimonials = () => {
   const breakPoints = [

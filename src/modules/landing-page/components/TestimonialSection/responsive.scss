@@ -1,0 +1,11 @@
+@import "../../../../scss/variables.scss";
+@import "../../../../scss/animation";
+
+
+
+@media screen and (max-width: $ipad){
+  .card-wrapper{
+    flex-wrap:nowrap !important;
+    left:0;
+  }
+}

@@ -1,4 +1,6 @@
 import './style.scss';
+import './responsive.scss';
+
 const ProductCard = ({ card }: any) => {
   const {
     sale = '',

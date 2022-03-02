@@ -2,6 +2,8 @@ import ProductCard from '../../../../components/ProductCard';
 import { Card } from '../../../../interface/Card';
 import CategoryCard from './components/CategoryCard';
 import './style.scss';
+import './responsive.scss';
+
 import item1 from '../../../../assets/item1.png';
 import item2 from '../../../../assets/item2.png';
 import item3 from '../../../../assets/item3.png';
