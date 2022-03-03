@@ -5,7 +5,8 @@
     > h1 {
       font-size: 72px;
     }
-    > p, h1 {
+    > p,
+    h1 {
       width: 50%;
       word-break: break-word;
     }
@@ -14,8 +15,14 @@
       width: 140px;
     }
   }
-  background: url('../../../../assets/banner.jpg') no-repeat center center; 
-  height: calc(100vh - 88px);
+  // background: url('../../../../assets/banner.jpg') no-repeat center center;
+  height: calc(100vh);
   margin-top: 88px;
   background-size: cover;
+  width: 100%;
+  video {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
 }
