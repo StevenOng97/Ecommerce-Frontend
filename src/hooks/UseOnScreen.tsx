@@ -11,7 +11,7 @@ const useOnScreen = (ref: any, rootMargin = '0px', threshold = 1.0, trackOnce: b
         }
       },
       {
-        rootMargin,
+        rootMargin: `${rootMargin} 0px 0px 0px`,
         threshold,
       }
     );
