@@ -4,5 +4,10 @@
 
 
 @media screen and (max-width: $ipad){
-  
+   .card-wrapper {
+    row-gap: 0px;
+    flex-wrap: nowrap !important;
+
+    /*Chinh lai Finaldata ben index.tsx */
+}
 }
