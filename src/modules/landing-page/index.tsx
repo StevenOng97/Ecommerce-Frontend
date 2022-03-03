@@ -30,7 +30,7 @@ const LandingPage = () => {
       <DealSection />
       <BestSellerSection getItemToCart={getItemToCart} />
       <Testimonials />
-      <LocationSection />
+      {/* <LocationSection /> */}
     </div>
   );
 };
