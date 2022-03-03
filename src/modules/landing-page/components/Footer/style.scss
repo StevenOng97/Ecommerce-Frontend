@@ -1,0 +1,48 @@
+
+
+.footer-wrapper{
+    border-top: 1px solid rgb(0,0,0,0.3);
+    width:100%;
+    display:flex;
+
+    li{
+        margin:2rem;
+        a{
+            text-decoration: none;
+            color:black;
+        }
+    }
+}
+
+.contact-wrapper{
+    width:60%;
+    
+}
+
+.contact-list{
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    
+}
+
+.social-icon-wrapper{
+    width:40%;
+}
+.social-icon-list{
+    list-style: none;
+    display:flex;
+    flex-direction: row;    
+    li{
+        padding:0.2rem;
+    }
+}
+
+.copyright-wrapper{
+    width:100%;
+    padding:2rem 4rem;
+}
+
+.highlight{
+    color:red;
+}
