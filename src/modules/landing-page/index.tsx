@@ -31,8 +31,8 @@ const LandingPage = () => {
       <DealSection />
       <BestSellerSection getItemToCart={getItemToCart} />
       <Testimonials />
-      <LocationSection />
       <Footer />
+      {/* <LocationSection /> */}
     </div>
   );
 };
