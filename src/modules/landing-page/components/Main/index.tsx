@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import './style.scss';
-import Hero from '../../../../assets/video1.mp4';
+import Hero from '../../../../assets/Hero.mp4';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Main = () => {
