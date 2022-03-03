@@ -5,7 +5,7 @@ import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Main = () => {
   const videoRef = useRef<any>(null);
-  const onScreen = useOnScreen(videoRef, '-300px', 0, false);
+  const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
 
   if (videoRef.current) {
     if (onScreen) {
