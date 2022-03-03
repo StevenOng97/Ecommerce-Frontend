@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './style.scss';
+import Hero from '../../../../assets/video1.mp4';
+import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Main = () => {
+  const videoRef = useRef<any>(null);
+  const onScreen = useOnScreen(videoRef, '-300px', 0, false);
+
+  if (videoRef.current) {
+    if (onScreen) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+  }
+
   return (
     <div className="main">
-      <div className="container d-flex flex-column justify-content-center w-100">
-        <p className="fw-bold mb-0">
-          Spring / Summer Collection 2022
-        </p>
-        <h1 className="my-0">
-          Get up to 30% Off New Arrivals
-        </h1>
-        <button className="btn main-btn">
-          SHOP NOW
-        </button>
-      </div>
+      <video autoPlay loop muted ref={videoRef}>
+        <source src={Hero} />
+      </video>
     </div>
   );
 };
