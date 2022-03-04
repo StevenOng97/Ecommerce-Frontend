@@ -94,8 +94,8 @@ const Footer = () => {
 
       <div className="copyright-wrapper container">
         ©2018 All Rights Reserved. This project is made by
-        <span className="highlight"> Dust </span>
-        <span className="highlight">StevenOng</span>
+        <span className="highlight"> Dust </span> &
+        <span className="highlight"> StevenOng</span>
       </div>
     </div>
   );

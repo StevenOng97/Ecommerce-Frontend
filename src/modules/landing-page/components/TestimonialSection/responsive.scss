@@ -3,11 +3,17 @@
 
 
 
-@media screen and (max-width: $ipad){
-   .card-wrapper {
-    row-gap: 0px;
-    flex-wrap: nowrap !important;
-
-    /*Chinh lai Finaldata ben index.tsx */
+@media screen and (max-width: $laptop){
+   .feedback-card{
+       width:100%;
+   }
 }
+
+
+
+@media screen and (max-width: $mobile){
+   .feedback-card{
+        font-size: 12px;
+        padding: 1rem;
+   }
 }

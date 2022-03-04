@@ -12,9 +12,31 @@
   flex-direction: column;
       > div {
       background-size:cover!important;
-      width: calc(100% - $marginLeft);
+      width: 100%;
+      margin:0;
     }
   }
 }
+.category-card-wrapper{
+ 
+  .category-card{
+    margin: 0.3rem 4rem;
+  }
+}
+
+}
+
+
+
+@media screen and (max-width: $mobile){
+
+.category-card-wrapper{
+ 
+  
+  .category-card{
+    font-size:14px;
+  }
+}
+
 }
 
