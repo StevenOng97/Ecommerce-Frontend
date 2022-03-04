@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.scss';
-import './responsive.scss';
 
 const CartItem = ({ card }: any) => {
   console.log(card);
