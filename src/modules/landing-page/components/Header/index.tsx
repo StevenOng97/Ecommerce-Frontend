@@ -23,8 +23,6 @@ const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 const Header = (props: any) => {
   const [show, setShow] = useState(false);
 
-  const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
-
   const [isOpenCart, setOpenCart] = useState<boolean>(false);
   const renderCenterItems = (): JSX.Element[] => {
     return data.map((item, i) => {

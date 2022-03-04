@@ -4,7 +4,7 @@ import feedbackCard from './mockData';
 import Carousel from 'react-elastic-carousel';
 import './style.scss';
 import './responsive.scss';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Testimonials = () => {
@@ -16,6 +16,8 @@ const Testimonials = () => {
   ];
 
   const containerRef: any = useRef(null);
+
+  const onMobileScreen = window.innerWidth <= 997;
 
   const onScreen = useOnScreen(containerRef, '-200px', 0.1);
 
@@ -35,13 +37,21 @@ const Testimonials = () => {
   };
 
   const renderCardWrapper = (): JSX.Element[] => {
-    return finalData.map((cardWrapper, i) => {
-      return (
-        <div className="card-wrapper d-flex flex-wrap" key={i}>
-          {renderCard(cardWrapper)}
-        </div>
-      );
-    });
+    if (onMobileScreen) {
+      return renderMobileScreen();
+    } else {
+      return finalData.map((cardWrapper, i) => {
+        return (
+          <div className="card-wrapper d-flex flex-wrap" key={i}>
+            {renderCard(cardWrapper)}
+          </div>
+        );
+      });
+    }
+  };
+
+  const renderMobileScreen = (): JSX.Element[] => {
+    return renderCard(feedbackCard);
   };
 
   const className = onScreen

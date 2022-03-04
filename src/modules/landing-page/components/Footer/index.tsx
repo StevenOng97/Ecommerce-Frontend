@@ -5,99 +5,99 @@ import {
   faBeer,
   faBell,
   faBlender,
-  IconDefinition
+  IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
 import './responsive.scss';
 
 interface contactInterface {
-  name: string,
-  url: string,
+  name: string;
+  url: string;
 }
 
-interface socialIconInterface{
-  name: string,
-  icon: IconDefinition,
-  url: string,
+interface socialIconInterface {
+  name: string;
+  icon: IconDefinition;
+  url: string;
 }
 const Footer = () => {
   const contact: contactInterface[] = [
     {
-      name:"Blog",
-      url:"",
+      name: 'Blog',
+      url: '',
     },
     {
-       name:"FAQs",
-       url:"",
+      name: 'FAQs',
+      url: '',
     },
     {
-        name: "Contact us",
-        url: "",
-    }];
-     
-  const socialIcon : socialIconInterface[] = [
+      name: 'Contact us',
+      url: '',
+    },
+  ];
+
+  const socialIcon: socialIconInterface[] = [
     {
-      name: "facebook",
+      name: 'facebook',
       icon: faBaseball,
-      url:"",
+      url: '',
     },
     {
-      name: "twitter",
+      name: 'twitter',
       icon: faBed,
-      url:"",
-
+      url: '',
     },
     {
-      name: "instagram",
+      name: 'instagram',
       icon: faBeer,
-      url:"",
-
+      url: '',
     },
     {
-      name: "Skype",
+      name: 'Skype',
       icon: faBell,
-      url:"",
-
+      url: '',
     },
     {
-      name: "Pinterest",
+      name: 'Pinterest',
       icon: faBlender,
-      url:"",
-
-    }
-  ]
+      url: '',
+    },
+  ];
   return (
-      <>
-        <div className="footer-wrapper">
+    <div className="footer">
+      <div className="footer-wrapper container">
+        <div className="contact-wrapper">
+          <ul className="contact-list">
+            {contact.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a href={item.url}>{item.name}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className="social-icon-wrapper">
+          <ul className="social-icon-list">
+            {socialIcon.map((item, index) => {
+              return (
+                <li key={index}>
+                  <a href={item.url}>
+                    <FontAwesomeIcon icon={item.icon} />
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
 
-          <div className="contact-wrapper">
-        <ul className="contact-list">
-          {contact.map((item, index) => {
-            return (
-              <li key={index}>
-                <a href={item.url}>{item.name}</a>
-              </li>
-            )
-          })}
-        </ul>
-          </div>
-          <div className="social-icon-wrapper">
-            <ul className="social-icon-list">
-              {socialIcon.map((item,index) => {
-                return (
-                  <li key={index}>
-                    <a href={item.url}><FontAwesomeIcon icon={item.icon}/></a>
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-          </div>
-          <div className="copyright-wrapper">
-          ©2018 All Rights Reserved. This project is made by <span className="highlight">Dust</span> & <span className="highlight">StevenOng</span>
-          </div>
-      </>
-      
-  )
-  }
+      <div className="copyright-wrapper container">
+        ©2018 All Rights Reserved. This project is made by
+        <span className="highlight"> Dust </span>
+        <span className="highlight">StevenOng</span>
+      </div>
+    </div>
+  );
+};
 export default Footer;
