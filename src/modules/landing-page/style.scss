@@ -1,5 +1,11 @@
 @import '../../scss/variables';
 
+Html, body 
+{
+    max-width: 100%;
+    overflow-x: hidden;
+ }
+
 .section-title {
   text-align: center;
   position: relative;

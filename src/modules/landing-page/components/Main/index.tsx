@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import './style.scss';
+import './responsive.scss';
 import Hero from '../../../../assets/Hero.mp4';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 

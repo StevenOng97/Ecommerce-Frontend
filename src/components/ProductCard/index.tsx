@@ -1,13 +1,15 @@
 import './style.scss';
+import './responsive.scss';
+
 const ProductCard = ({ card }: any) => {
   const {
-    sale = "",
+    sale = '',
     isNew,
     priceAfterSale,
     price,
     label,
     image,
-    action = () => { },
+    action = () => {},
   } = card;
 
   const priceCardClass = priceAfterSale ? 'line-through' : 'price-after-sale';
@@ -15,8 +17,9 @@ const ProductCard = ({ card }: any) => {
     <div className="product-card">
       {(sale || isNew) && (
         <div
-          className={`product-tag d-flex flex-column align-items-center ${isNew ? 'product-tag-new' : 'product-tag-sale'
-            }`}
+          className={`product-tag d-flex flex-column align-items-center ${
+            isNew ? 'product-tag-new' : 'product-tag-sale'
+          }`}
         >
           <span className="text-white">{isNew ? 'NEW' : `-${sale}`}</span>
         </div>

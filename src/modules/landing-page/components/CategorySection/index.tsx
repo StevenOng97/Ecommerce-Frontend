@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 import './style.scss';
+import './responsive.scss';
+
 import card1 from '../../../../assets/card3.jpg';
 import card2 from '../../../../assets/card2.jpg';
 import card3 from '../../../../assets/card1.jpg';

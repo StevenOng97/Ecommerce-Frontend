@@ -1,0 +1,31 @@
+@import "../../../../scss/variables.scss";
+
+
+
+@media screen and (max-width: $ipad){
+.main {
+  > div {
+    > h1 {
+      font-size: 48px;
+    }
+
+    button {
+      width: 140px;
+    }
+  }
+}
+}
+
+@media screen and (max-width: $mobile){
+.main {
+  > div {
+    > h1 {
+      font-size: 36px;
+    }
+   
+    button {
+      width: 140px;
+    }
+  }
+}
+}

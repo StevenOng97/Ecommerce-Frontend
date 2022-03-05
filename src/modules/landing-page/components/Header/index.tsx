@@ -3,9 +3,11 @@ import {
   faSearch,
   faUser,
   faShoppingCart,
+  faBars,
+  faXmark
 } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
-
+import './responsive.scss';
 import item1 from '../../../../assets/item1.png';
 import item2 from '../../../../assets/item2.png';
 import item3 from '../../../../assets/item3.png';
@@ -14,9 +16,13 @@ import item5 from '../../../../assets/item5.png';
 import { useState } from 'react';
 import { Card } from '../../../../interface/Card';
 import CartItem from './CartItem';
+
+
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
 const Header = (props: any) => {
+  const [show, setShow] = useState(false);
+
   const [isOpenCart, setOpenCart] = useState<boolean>(false);
   const renderCenterItems = (): JSX.Element[] => {
     return data.map((item, i) => {
@@ -109,7 +115,10 @@ const Header = (props: any) => {
             <span>shop</span>
           </a>
         </div>
-        <div className="center-items-wrapper">
+        <div className={`center-items-wrapper ${show && "show"} `}>
+          <div className={`closeBtn-wrapper`}>
+            <FontAwesomeIcon icon={faXmark} className="closeBtn" onClick={() => { setShow(false) }} />
+          </div>
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
@@ -124,6 +133,8 @@ const Header = (props: any) => {
               <span>{props.cartCount}</span>
             </div>
           </div>
+          <FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} />
+
           {isOpenCart && (
             <div className="position-absolute cart-wrapper animated">
               <div className="fix-margin">
@@ -142,5 +153,4 @@ const Header = (props: any) => {
     </div>
   );
 };
-
 export default Header;

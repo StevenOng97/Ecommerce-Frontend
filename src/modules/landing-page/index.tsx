@@ -7,6 +7,7 @@ import LocationSection from './components/LocationSection';
 import Main from './components/Main';
 import NewArrivals from './components/NewArrivals';
 import Testimonials from './components/TestimonialSection';
+import Footer from './components/Footer';
 import './style.scss';
 
 const LandingPage = () => {
@@ -32,6 +33,7 @@ const LandingPage = () => {
       <DealSection />
       <BestSellerSection getItemToCart={getItemToCart} />
       <Testimonials />
+      <Footer />
       {/* <LocationSection /> */}
     </div>
   );
