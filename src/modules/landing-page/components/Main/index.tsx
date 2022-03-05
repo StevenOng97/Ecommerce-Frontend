@@ -33,7 +33,7 @@ const Main = () => {
       />}
 
       {isError &&
-        <img src={src} width="100%" height="100%" alt="Hero" />
+        <img src={HeroImage} width="100%" height="100%" alt="Hero" />
       }
 
       {/* <video ref={videoRef} loop autoPlay muted playsInline>
