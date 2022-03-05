@@ -23,7 +23,7 @@ const Main = () => {
   return (
     <div className="main">
       <video ref={videoRef} loop autoPlay muted playsInline>
-        <source src={Hero} />
+        <source src={Hero} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
