@@ -5,7 +5,6 @@
 Html,
 body {
   max-width: 100%;
-  // overflow-x: hidden;
 }
 
 html,
@@ -14,7 +13,6 @@ body,
 #root > div {
   height: 100%;
 }
-
 
 .main-btn {
   color: #fff;
@@ -115,4 +113,11 @@ body,
 .disabled-page {
   pointer-events: none;
   opacity: 0.7;
+}
+
+@media screen and (max-width: $ipad) {
+  Html,
+  body {
+    overflow-x: hidden;
+  }
 }

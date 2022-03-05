@@ -14,7 +14,7 @@ const Main = () => {
       <ReactPlayer
         playing={onScreen}
         url={Hero}
-        muted
+        muted={true}
         loop
         playsinline
         height="100%"
