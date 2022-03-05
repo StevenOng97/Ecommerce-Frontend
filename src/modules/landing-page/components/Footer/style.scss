@@ -1,51 +1,52 @@
+@import "../../../../scss/variables";
 .footer {
-    margin: 2rem 0;
+  margin: 2rem 0;
 }
 
 .footer-wrapper {
-    border-top: 1px solid rgb(0, 0, 0, 0.3);
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    ul {
-        padding: 0;
-        gap: 20px;
+  border-top: 1px solid rgb(0, 0, 0, 0.3);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ul {
+    padding: 0;
+    gap: 20px;
+  }
+  li {
+    margin-top: 2rem;
+    a {
+      text-decoration: none;
+      color: black;
     }
-    li {
-        margin-top: 2rem;
-        // margin: 2rem;
-        a {
-            text-decoration: none;
-            color: black;
-        }
-    }
+  }
 }
 
-// .contact-wrapper {
-//     width: 60%;
-// }
-
 .contact-list {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
 }
 
 .social-icon-list {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    li {
-        padding: 0.2rem;
-    }
-}
-
-.copyright-wrapper {
-    // width: 100%;
-    // padding: 2rem 4rem;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  li {
+    padding: 0.2rem;
+  }
 }
 
 .highlight {
-    color: red;
+  color: $main-color;
+}
+
+svg {
+  color: #1e1e27;
+  transition: color 0.5s;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    color: $sliver;
+  }
 }

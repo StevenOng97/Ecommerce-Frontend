@@ -1,10 +1,8 @@
-@import '../../scss/variables';
+@import "../../scss/variables";
 
-Html, body 
-{
-    max-width: 100%;
-    overflow-x: hidden;
- }
+.landing__page {
+  transition: all 0.5s;
+}
 
 .section-title {
   text-align: center;

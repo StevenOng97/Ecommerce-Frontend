@@ -18,7 +18,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      <video autoPlay loop muted ref={videoRef}>
+      <video playsInline autoPlay loop muted ref={videoRef}>
         <source src={Hero} />
       </video>
     </div>

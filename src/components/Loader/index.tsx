@@ -6,17 +6,18 @@ const override = `
   margin: 0 auto;
   border-color: red;
   color: #FF9800;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%)
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 `;
 
 const color = '#FF9800';
 const Loader = ({ loading }: any) => {
   return (
     <div className="loader-container">
-      <SyncLoader loading={loading} css={override} size={150} color={color} />
+      <SyncLoader loading={loading} css={override} size={40} color={color} />
     </div>
   );
 };

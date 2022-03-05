@@ -9,9 +9,21 @@ import NewArrivals from './components/NewArrivals';
 import Testimonials from './components/TestimonialSection';
 import Footer from './components/Footer';
 import './style.scss';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchProducts } from '../../redux/actions/products';
 
 const LandingPage = () => {
   const cartCount = 2;
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const emptyString = {};
+    // const queryParams = {
+    //  category: 'Value'
+    // }
+    dispatch(fetchProducts(emptyString));
+  }, [])
 
   const cardAction = (filter: string) => {
     // filter fetch api here
