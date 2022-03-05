@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './style.scss';
 import './responsive.scss';
 import Hero from '../../../../assets/Hero.mp4';
