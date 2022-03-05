@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './style.scss';
+import './responsive.scss';
+
 import img from '../../../../assets/dealoftheweek.png';
 import { countTimeDiff } from '../../../../constants/helpers';
 import { Timer } from '../../../../interface/Timer';

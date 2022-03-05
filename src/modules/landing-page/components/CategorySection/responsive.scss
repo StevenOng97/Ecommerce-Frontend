@@ -1,0 +1,42 @@
+@import "../../../../scss/variables.scss";
+@import "../../../../scss/animation";
+
+
+
+@media screen and (max-width: $ipad){
+.category__section {
+
+  
+  .container {
+  display: flex;
+  flex-direction: column;
+      > div {
+      background-size:cover!important;
+      width: 100%;
+      margin:0;
+    }
+  }
+}
+.category-card-wrapper{
+ 
+  .category-card{
+    margin: 0.3rem 4rem;
+  }
+}
+
+}
+
+
+
+@media screen and (max-width: $mobile){
+
+.category-card-wrapper{
+ 
+  
+  .category-card{
+    font-size:14px;
+  }
+}
+
+}
+

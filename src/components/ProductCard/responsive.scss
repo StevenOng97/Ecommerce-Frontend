@@ -1,0 +1,19 @@
+@import "../../scss/variables.scss";
+
+
+
+@media screen and (max-width: $ipad){
+$columns:3;
+.product-card {
+ 
+  width: calc(calc(100% / $columns) - $marginLeft);
+}
+}
+
+@media screen and (max-width: $mobile){
+$columns:1;
+.product-card {
+ 
+  width: calc(calc(100% / $columns) - $marginLeft);
+}
+}

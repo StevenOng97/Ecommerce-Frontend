@@ -1,6 +1,8 @@
 import ProductCard from '../../../../components/ProductCard';
 import { Card } from '../../../../interface/Card';
 import './style.scss';
+import './responsive.scss';
+
 import Carousel from 'react-elastic-carousel';
 import item1 from '../../../../assets/item1.png';
 import item2 from '../../../../assets/item2.png';
