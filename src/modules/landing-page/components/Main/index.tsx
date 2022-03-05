@@ -4,11 +4,16 @@ import './responsive.scss';
 import Hero from '../../../../assets/Hero.mp4';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import ReactPlayer from 'react-player';
+import axios from 'axios';
 
 const Main = () => {
   const videoRef = useRef<any>(null);
   const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
   
+  const handleError = (error: any) => {
+    axios.get(`http://localhost:8080/onerror/${error}`);
+  }
+
   return (
     <div className="main" ref={videoRef}>
       <ReactPlayer
@@ -19,6 +24,7 @@ const Main = () => {
         playsinline
         height="100%"
         width="100%"
+        onError={handleError}
       />
 
       {/* <video ref={videoRef} loop autoPlay muted playsInline>
