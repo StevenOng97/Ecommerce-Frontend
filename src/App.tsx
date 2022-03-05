@@ -5,7 +5,6 @@ import LandingPage from './modules/landing-page';
 function App() {
   const loading = useSelector((state: any) => state.products.isLoading);
   
-  console.log(loading);
   const className = loading ? 'App disabled-page' : 'App';
 
   return (
