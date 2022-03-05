@@ -11,7 +11,7 @@ const Main = () => {
   const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
   
   const handleError = (error: any) => {
-    axios.get(`http://localhost:8080/onerror/${error}`);
+    axios.post(`http://localhost:8080/onerror`, error);
   }
 
   return (
