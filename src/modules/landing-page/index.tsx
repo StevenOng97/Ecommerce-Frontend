@@ -10,10 +10,12 @@ import Testimonials from './components/TestimonialSection';
 import Footer from './components/Footer';
 import './style.scss';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/actions/products';
 
 const LandingPage = () => {
+  const loading = useSelector((state: any) => state.products.isLoading);
+
   const cartCount = 2;
 
   const dispatch = useDispatch();
@@ -37,7 +39,7 @@ const LandingPage = () => {
 
   return (
     <div className="landing__page position-relative">
-      <Loader loading={true} />
+      <Loader loading={loading} />
       <Header cartCount={cartCount} />
       <Main />
       <Category cardAction={cardAction} />

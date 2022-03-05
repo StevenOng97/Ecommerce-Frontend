@@ -1,25 +1,33 @@
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.scss';
 import './responsive.scss';
 import Hero from '../../../../assets/Hero.mp4';
+import HeroImage from '../../../../assets/Hero1.png';
+
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import ReactPlayer from 'react-player';
 
 const Main = () => {
+  const [src, setSrc] = useState<any>(Hero);
   const videoRef = useRef<any>(null);
 
   const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
+
+  const handleError = () => {
+    setSrc(HeroImage);
+  }
 
   return (
     <div className="main" ref={videoRef}>
       <ReactPlayer
         playing={onScreen}
-        url={Hero}
+        url={src}
         muted={true}
         loop
         playsinline
         height="100%"
         width="100%"
+        onError={handleError}
       />
 
       {/* <video ref={videoRef} loop autoPlay muted playsInline>
