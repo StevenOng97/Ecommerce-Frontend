@@ -1,3 +1,4 @@
+import Loader from '../../components/Loader';
 import BestSellerSection from './components/BestSellerSection';
 import Category from './components/CategorySection';
 import DealSection from './components/DealSection';
@@ -19,10 +20,11 @@ const LandingPage = () => {
   const getItemToCart = (_id: string) => {
     // fetch api to draft the product 123
     console.log(`item with id: ${_id} already get into cart`);
-  }
+  };
 
   return (
-    <div className="landing__page">
+    <div className="landing__page position-relative">
+      <Loader loading={true} />
       <Header cartCount={cartCount} />
       <Main />
       <Category cardAction={cardAction} />
