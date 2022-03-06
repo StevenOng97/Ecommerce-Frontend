@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import './style.scss';
 import './responsive.scss';
 import Hero from '../../../../assets/Hero.mp4';
@@ -17,25 +17,44 @@ const Main = () => {
   const handleError = (e: any) => {
     setSrc(HeroImage);
     setError(true);
-    console.log("Error1:", e);
-  }
+    console.log('Error1:', e);
+  };
+
+  const transformVideoFunction = useCallback(() => {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', src, true);
+    xhr.responseType = 'blob';
+    xhr.onload = function (e) {
+      if (this.status === 200) {
+        var myBlob = this.response;
+        var vid = (window.webkitURL || window.URL).createObjectURL(myBlob);
+        setSrc(vid);
+      }
+    };
+
+    xhr.send();
+  }, []);
+
+  useEffect(() => {
+    transformVideoFunction();
+  }, [])
 
   return (
     <div className="main" ref={videoRef}>
-      {!isError && <ReactPlayer
-        playing={onScreen}
-        url={src}
-        muted={true}
-        loop
-        playsinline
-        height="100%"
-        width="100%"
-        onError={handleError}
-      />}
+      {!isError && (
+        <ReactPlayer
+          playing={onScreen}
+          url={src}
+          muted={true}
+          loop
+          playsinline
+          height="100%"
+          width="100%"
+          onError={handleError}
+        />
+      )}
 
-      {isError &&
-        <img src={HeroImage} width="100%" height="100%" alt="Hero" />
-      }
+      {isError && <img src={HeroImage} width="100%" height="100%" alt="Hero" />}
 
       {/* <video ref={videoRef} loop autoPlay muted playsInline>
         <source src={Hero} type="video/mp4" />
