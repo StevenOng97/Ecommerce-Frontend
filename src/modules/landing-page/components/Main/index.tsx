@@ -8,7 +8,7 @@ import useOnScreen from '../../../../hooks/UseOnScreen';
 import ReactPlayer from 'react-player';
 
 const Main = () => {
-  const [src, setSrc] = useState<any>(Hero);
+  const [src, setSrc] = useState<any>(process.env.REACT_APP_HERO_VIDEO_SRC);
   const [isError, setError] = useState<any>(null);
   const videoRef = useRef<any>(null);
 
