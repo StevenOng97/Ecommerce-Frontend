@@ -14,9 +14,10 @@ const Main = () => {
 
   const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
 
-  const handleError = () => {
+  const handleError = (e) => {
     setSrc(HeroImage);
     setError(true);
+    console.log("Error1:", e);
   }
 
   return (
