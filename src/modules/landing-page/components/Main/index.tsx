@@ -1,11 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.scss';
 import './responsive.scss';
 import Hero from '../../../../assets/Hero.mp4';
 import HeroImage from '../../../../assets/Hero1.png';
 
 import useOnScreen from '../../../../hooks/UseOnScreen';
-import ReactPlayer from 'react-player';
 
 const Main = () => {
   const [src, setSrc] = useState<any>(process.env.REACT_APP_HERO_VIDEO_SRC);
@@ -20,46 +19,36 @@ const Main = () => {
     console.log('Error1:', e);
   };
 
-  const transformVideoFunction = useCallback(() => {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', src, true);
-    xhr.responseType = 'blob';
-    xhr.onload = function (e) {
-      if (this.status === 200) {
-        var myBlob = this.response;
-        var vid = (window.webkitURL || window.URL).createObjectURL(myBlob);
-        setSrc(vid);
-      }
-    };
-
-    xhr.send();
-  }, []);
-
   useEffect(() => {
-    transformVideoFunction();
-  }, [])
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+    }
+  });
+
+  if (onScreen && videoRef.current) {
+    videoRef.current.play();
+  } else if (!onScreen && videoRef.current) {
+    videoRef.current.pause();
+  }
 
   return (
-    <div className="main" ref={videoRef}>
+    <div className="main">
       {!isError && (
-        <ReactPlayer
-          playing={onScreen}
-          url={src}
-          muted={true}
+        <video
+          ref={videoRef}
           loop
-          playsinline
-          height="100%"
-          width="100%"
+          autoPlay
+          muted
+          playsInline
           onError={handleError}
-        />
+          controls={true}
+        >
+          <source src={src} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       )}
-
       {isError && <img src={HeroImage} width="100%" height="100%" alt="Hero" />}
-
-      {/* <video ref={videoRef} loop autoPlay muted playsInline>
-        <source src={Hero} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video> */}
     </div>
   );
 };
