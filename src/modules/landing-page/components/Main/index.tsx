@@ -13,10 +13,10 @@ const Main = () => {
 
   const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
 
-  const handleError = (e: any) => {
+  const handleError = (videoElement: any) => {
     setSrc(HeroImage);
     setError(true);
-    console.log('Error1:', e);
+    console.log("Error " + videoRef.current.error.code + "; details: " + videoRef.current.error.message);
   };
 
   useEffect(() => {
@@ -42,7 +42,6 @@ const Main = () => {
           muted
           playsInline
           onError={handleError}
-          controls={true}
         >
           <source src={src} type="video/mp4" />
           Your browser does not support the video tag.
