@@ -1,21 +1,15 @@
 @import "../../../../scss/variables.scss";
 @import "../../../../scss/animation";
 
-
-
-@media screen and (max-width: $ipad){
-
-.best-seller__section {
-  
-  .delivery-area {
-    display: block !important;    
-    background: #f2f2f2;
-    .benefit-card{
-      padding:20px;
-      width:100% !important;
-
+@media screen and (max-width: $ipad) {
+  .best-seller__section {
+    .delivery-area {
+      display: block !important;
+      background: #f2f2f2;
+      .benefit-card {
+        padding: 20px;
+        width: 100% !important;
+      }
     }
   }
-}
-
 }

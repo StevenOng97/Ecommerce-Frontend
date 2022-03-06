@@ -1,35 +1,32 @@
 @import "../../../../scss/variables.scss";
 @import "../../../../scss/animation";
 
-
-@media screen and (max-width: $laptop){
-  .text-black{
-  font-size:16px !important;
-}
-
-}
-
-@media screen and (max-width: $ipad){
-.deal__section {
-  .container > div {
-    width: 0%;
-    margin:0px;
-  } 
-}
-.image-wrapper{
-  display: absolute !important;
-  width:0%;
-}
-.text-wrapper{
-  display: absolute !important;
-  width:100% !important;
-  > h2 {
-    background: rgba(255, 255, 255, 0.8);
-    width: fit-content;
-    margin: 0 auto;
-    padding: 8px;
-    border-radius: 8px;
+@media screen and (max-width: $laptop) {
+  .text-black {
+    font-size: 16px !important;
   }
-  
 }
+
+@media screen and (max-width: $ipad) {
+  .deal__section {
+    .container > div {
+      width: 0%;
+      margin: 0px;
+    }
+  }
+  .image-wrapper {
+    display: absolute !important;
+    width: 0%;
+  }
+  .text-wrapper {
+    display: absolute !important;
+    width: 100% !important;
+    > h2 {
+      background: rgba(255, 255, 255, 0.8);
+      width: fit-content;
+      margin: 0 auto;
+      padding: 8px;
+      border-radius: 8px;
+    }
+  }
 }

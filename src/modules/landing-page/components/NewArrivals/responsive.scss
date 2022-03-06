@@ -1,11 +1,7 @@
 @import "../../../../scss/variables.scss";
 
-
-
-@media screen and (max-width: $ipad){
-.category-card-wrapper{
-  display:block!important;
+@media screen and (max-width: $ipad) {
+  .category-card-wrapper {
+    display: block !important;
+  }
 }
-
-}
-
