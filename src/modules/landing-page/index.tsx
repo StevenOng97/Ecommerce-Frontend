@@ -1,30 +1,22 @@
-import Loader from '../../components/Loader';
 import BestSellerSection from './components/BestSellerSection';
 import Category from './components/CategorySection';
 import DealSection from './components/DealSection';
-import Header from './components/Header';
 import Main from './components/Main';
 import NewArrivals from './components/NewArrivals';
 import Testimonials from './components/TestimonialSection';
-import Footer from './components/Footer';
 import './style.scss';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../../redux/actions/products';
+import Layout from '../main-layout';
 
 const LandingPage = () => {
-  const loading = useSelector((state: any) => state.products.isLoading);
-
-  const cartCount = 2;
 
   const dispatch = useDispatch();
   useEffect(() => {
     const emptyString = {};
-    // const queryParams = {
-    //  category: 'Value'
-    // }
     dispatch(fetchProducts(emptyString));
-  }, [])
+  }, []);
 
   const cardAction = (filter: string) => {
     // filter fetch api here
@@ -38,16 +30,14 @@ const LandingPage = () => {
 
   return (
     <div className="landing__page position-relative">
-      <Loader loading={loading} />
-      <Header cartCount={cartCount} />
-      <Main />
-      <Category cardAction={cardAction} />
-      <NewArrivals cardAction={cardAction} getItemToCart={getItemToCart} />
-      <DealSection />
-      <BestSellerSection getItemToCart={getItemToCart} />
-      <Testimonials />
-      <Footer />
-      {/* <LocationSection /> */}
+      <Layout>
+        <Main />
+        <Category cardAction={cardAction} />
+        <NewArrivals cardAction={cardAction} getItemToCart={getItemToCart} />
+        <DealSection />
+        <BestSellerSection getItemToCart={getItemToCart} />
+        <Testimonials />
+      </Layout>
     </div>
   );
 };
