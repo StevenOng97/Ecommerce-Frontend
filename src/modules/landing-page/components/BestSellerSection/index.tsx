@@ -130,7 +130,7 @@ const BestSellerSection = ({ getItemToCart }: any) => {
     },
     {
       icon: faMoneyBill1,
-      title: 'CACH ON DELIVERY',
+      title: 'CASH ON DELIVERY',
       text: 'The Internet Tend To Repeat',
     },
     {
@@ -158,8 +158,8 @@ const BestSellerSection = ({ getItemToCart }: any) => {
   };
 
   const className = onScreen
-  ? 'content-wrapper animated'
-  : 'content-wrapper';
+    ? 'content-wrapper animated'
+    : 'content-wrapper';
 
   return (
     <div className="best-seller__section section">

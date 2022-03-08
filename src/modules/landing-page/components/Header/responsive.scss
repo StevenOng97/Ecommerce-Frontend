@@ -34,7 +34,7 @@
     &.show {
       visibility: visible;
       opacity: 1;
-      transition: all .2s ease-in;
+      transition: all 0.2s ease-in;
     }
   }
   .dropDownBtn {
@@ -60,5 +60,13 @@
     left: 0 !important;
     right: 0 !important;
     transform: translateY(10%);
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .right-items-wrapper {
+    > span {
+      padding: 0 0.2rem;
+    }
   }
 }
