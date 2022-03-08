@@ -128,9 +128,9 @@ const Header = (props: any) => {
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
-          <span><FontAwesomeIcon icon={faSearch} /></span>
-          <Link to="/login">
-            <span><FontAwesomeIcon icon={faUser} /></span>
+          <FontAwesomeIcon icon={faSearch} />
+          <Link to="/register">
+            <FontAwesomeIcon icon={faUser} />
           </Link>
           <div
             className="cart position-relative"

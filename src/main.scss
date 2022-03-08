@@ -80,6 +80,27 @@ body,
   opacity: 0.7;
 }
 
+.react-tel-input {
+  .form-control {
+    width: 100% !important;
+    height: auto !important;
+    &:focus,
+    &:visited {
+      border-color: $main-color;
+      box-shadow: 0 0 0 0.01rem #f9ae3f;
+    }
+  }
+}
+
+.form-control,
+.react-tel-input {
+  &:focus,
+  &:visited {
+    border-color: $main-color;
+    box-shadow: 0 0 0 0.01rem #f9ae3f;
+  }
+}
+
 @media screen and (max-width: $ipad) {
   Html,
   body {
