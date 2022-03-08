@@ -5,6 +5,7 @@ import './responsive.scss';
 import img from '../../../../assets/dealoftheweek.png';
 import { countTimeDiff } from '../../../../constants/helpers';
 import { Timer } from '../../../../interface/Timer';
+import Button from '../../../../components/Button/Button';
 
 const DealSection = () => {
   const [start, setStart] = useState(new Date());
@@ -60,7 +61,7 @@ const DealSection = () => {
             </div>
           </div>
           <div>
-            <button className="btn btn-secondary">SHOP NOW</button>
+            <Button context="SHOP NOW" className="btn btn-secondary" />
           </div>
         </div>
       </div>

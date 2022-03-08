@@ -1,6 +1,8 @@
+import { Button } from 'bootstrap';
 import React from 'react';
 import './main.scss';
 import LandingPage from './modules/landing-page';
+
 
 function App() {
   return (

@@ -17,7 +17,6 @@ import { useState } from 'react';
 import { Card } from '../../../../interface/Card';
 import CartItem from './CartItem';
 
-
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
 const Header = (props: any) => {
@@ -122,8 +121,8 @@ const Header = (props: any) => {
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
-          <span><FontAwesomeIcon icon={faSearch} /></span>
-          <span><FontAwesomeIcon icon={faUser} /></span>
+          <FontAwesomeIcon icon={faSearch} />
+          <FontAwesomeIcon icon={faUser} />
           <div
             className="cart position-relative"
             onClick={() => setOpenCart(!isOpenCart)}
@@ -133,7 +132,7 @@ const Header = (props: any) => {
               <span>{props.cartCount}</span>
             </div>
           </div>
-          <span><FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} /></span>
+          <FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} />
 
           {isOpenCart && (
             <div className="position-absolute cart-wrapper animated">

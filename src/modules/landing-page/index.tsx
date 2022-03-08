@@ -8,6 +8,8 @@ import NewArrivals from './components/NewArrivals';
 import Testimonials from './components/TestimonialSection';
 import Footer from './components/Footer';
 import './style.scss';
+import Button from "../../components/Button/Button";
+import Input from '../../components/Input/Input';
 
 const LandingPage = () => {
   const cartCount = 2;
