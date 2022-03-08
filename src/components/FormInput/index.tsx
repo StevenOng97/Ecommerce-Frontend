@@ -10,6 +10,7 @@ import Input, { InputProps } from '../Input';
 import { ErrorMessage } from '@hookform/error-message';
 import './style.scss';
 import PhoneInput from 'react-phone-input-2';
+import PasswordInput from '../PasswordInput';
 export type FormInputProps<TFormValues> = {
   name: Path<TFormValues>;
   rules?: RegisterOptions;
@@ -17,6 +18,7 @@ export type FormInputProps<TFormValues> = {
   errors?: Partial<DeepMap<TFormValues, FieldError>>;
   label?: Path<TFormValues>;
   control?: any;
+  type: any;
 } & Omit<InputProps, 'name'>;
 
 const FormInput = <TFormValues extends Record<string, unknown>>({
@@ -27,6 +29,7 @@ const FormInput = <TFormValues extends Record<string, unknown>>({
   className,
   control,
   label,
+  type,
   ...props
 }: FormInputProps<TFormValues>): JSX.Element => {
   const errorMessages = errors[name];
@@ -52,15 +55,39 @@ const FormInput = <TFormValues extends Record<string, unknown>>({
     />
   );
 
-  const renderInput = () => (
-    <Input
-      name={name}
-      aria-invalid={hasError}
-      className={className}
-      {...props}
-      {...(register && register(name, rules))}
-    />
-  );
+  // const renderInput = () => (
+  //   <Input
+  //     name={name}
+  //     aria-invalid={hasError}
+  //     className={className}
+  //     {...props}
+  //     {...(register && register(name, rules))}
+  //   />
+  // );
+
+  const renderInput = () => {
+    if (type === 'password') {
+      return (
+        <PasswordInput
+          name={name}
+          aria-invalid={hasError}
+          className={className}
+          {...props}
+          {...(register && register(name, rules))}
+        />
+      );
+    } else {
+      return (
+        <Input
+          name={name}
+          aria-invalid={hasError}
+          className={className}
+          {...props}
+          {...(register && register(name, rules))}
+        />
+      );
+    }
+  };
 
   return (
     <div aria-live="polite" className="mb-3 position-relative">
@@ -77,7 +104,9 @@ const FormInput = <TFormValues extends Record<string, unknown>>({
         errors={errors}
         name={name as any}
         render={({ message }) => (
-          <small className="mb-0 text-danger error-text">{message || 'Your password is not the same'}</small>
+          <small className="mb-0 text-danger error-text">
+            {message || 'Your password is not the same'}
+          </small>
         )}
       />
     </div>
