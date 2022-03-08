@@ -5,3 +5,11 @@
     display: block !important;
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .products-wrapper {
+    .product-card {
+      margin-bottom: 1rem;
+    }
+  }
+}

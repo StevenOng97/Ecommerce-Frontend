@@ -62,3 +62,11 @@
     transform: translateY(10%);
   }
 }
+
+@media screen and (max-width: $mobile) {
+  .right-items-wrapper {
+    > span {
+      padding: 0 0.2rem;
+    }
+  }
+}

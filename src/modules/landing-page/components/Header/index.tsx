@@ -122,8 +122,8 @@ const Header = (props: any) => {
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
-          <FontAwesomeIcon icon={faSearch} />
-          <FontAwesomeIcon icon={faUser} />
+          <span><FontAwesomeIcon icon={faSearch} /></span>
+          <span><FontAwesomeIcon icon={faUser} /></span>
           <div
             className="cart position-relative"
             onClick={() => setOpenCart(!isOpenCart)}
@@ -133,7 +133,7 @@ const Header = (props: any) => {
               <span>{props.cartCount}</span>
             </div>
           </div>
-          <FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} />
+          <span><FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} /></span>
 
           {isOpenCart && (
             <div className="position-absolute cart-wrapper animated">

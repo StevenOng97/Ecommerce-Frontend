@@ -53,9 +53,18 @@
     }
   }
   .right-items-wrapper {
-    gap: 20px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    > span {
+      padding: 0 1rem;
+    }
+    .right-items-icon {
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .cart-wrapper {
       max-height: 600px;
       min-height: 600px;
@@ -67,7 +76,7 @@
       border-radius: 4px;
       &.animated {
         animation-name: easeIn;
-        animation-duration: .3s;
+        animation-duration: 0.3s;
       }
     }
     .cart {
