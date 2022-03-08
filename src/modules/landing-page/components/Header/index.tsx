@@ -129,7 +129,7 @@ const Header = (props: any) => {
         </div>
         <div className="right-items-wrapper position-relative">
           <FontAwesomeIcon icon={faSearch} />
-          <Link to="/login">
+          <Link to="/register">
             <FontAwesomeIcon icon={faUser} />
           </Link>
           <div
