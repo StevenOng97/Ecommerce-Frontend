@@ -5,6 +5,11 @@ import { useForm } from 'react-hook-form';
 import FormInput from '../../components/FormInput';
 import { Pattern } from '../../constants/patterns';
 
+const usernamePattern = {
+  value: Pattern.username,
+  message: `Username couldn't contain special character`,
+};
+
 const emailPattern = {
   value: Pattern.email,
   message: 'Enter a valid email address.',
@@ -22,8 +27,10 @@ const RegisterPage = () => {
     handleSubmit,
     formState: { errors },
     control,
-    getValues,
-  } = useForm<any>();
+    watch
+  } = useForm<any>({
+    mode: 'all',
+  });
 
   const registrationForm = [
     {
@@ -33,6 +40,7 @@ const RegisterPage = () => {
       type: 'text',
       rules: {
         required: 'You must enter your username.',
+        pattern: usernamePattern,
         maxLength: {
           value: 20,
           message: 'Your username is too long',
@@ -66,7 +74,7 @@ const RegisterPage = () => {
         required: 'You must enter your confirm password.',
         validate: {
           samePassword: (value: string) =>
-            getValues().password === value || 'Your passwords are not matching',
+            watch('password') === value || 'Your passwords are not matching',
         },
       },
     },
