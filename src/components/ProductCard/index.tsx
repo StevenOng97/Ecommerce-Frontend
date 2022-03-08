@@ -25,7 +25,7 @@ const ProductCard = ({ card }: any) => {
       )}
       <div className="image__overlay">
         <Button
-          context="ADD TO CART"
+          context="REVIEW ITEM"
           contextStyle="mb-0"
           className="btn main-btn"
           onClick={action} />
