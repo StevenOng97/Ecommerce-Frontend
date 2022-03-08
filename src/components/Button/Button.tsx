@@ -11,13 +11,13 @@ interface IButton {
 function Button({
     context,
     contextStyle,
-    className = "btn main-btn",
+    className = "main-btn",
     onChange,
     onClick
 }: IButton) {
     return (
         <div
-            className={className}
+            className={`btn ${className}`}
             onChange={onChange}
             onClick={onClick}
         >
