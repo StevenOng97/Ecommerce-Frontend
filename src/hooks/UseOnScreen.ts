@@ -21,11 +21,13 @@ const useOnScreen = (
     const observer = new IntersectionObserver(([entry]) => {
       callbackFunction(entry, observer);
     }, options);
+
     if (ref.current) {
       observer.observe(ref.current);
     }
+
     return () => {
-      if (ref) observer.unobserve(ref);
+      if (ref?.current) observer.unobserve(ref);
     };
   }, []);
   return isIntersecting;

@@ -2,6 +2,18 @@
 @import "./scss/animation";
 @import "./scss/variables";
 
+Html,
+body {
+  max-width: 100%;
+}
+
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+}
+
 .main-btn {
   color: #fff;
   background: $main-color;
@@ -24,33 +36,11 @@
   text-overflow: ellipsis;
 }
 
-// .rec-arrow {
-//   &:hover,
-//   &:focus {
-//     background-color: $main-color !important;
-//   }
-// }
-// .rec-arrow:disabled {
-//   &:hover {
-//     background-color: transparent !important;
-//   }
-// }
-// .rec-dot {
-//   &:focus,
-//   &:hover {
-//     box-shadow: 0 0 1px 3px rgba(250, 171, 68, 0.651) !important;
-//   }
-//   &_active {
-//     background-color: $main-color !important;
-//     box-shadow: 0 0 1px 3px transparent;
-//     &:focus {
-//       box-shadow: 0 0 1px 3px transparent;
-//     }
-//   }
-//   &:visited {
-//     box-shadow: 0 0 1px 3px rgba(250, 171, 68, 0.651) !important;
-//   }
-// }
+.body__page {
+  margin-top: $header-height;
+  min-height: calc(100vh - ($footer-height + $header-height));
+  height: calc(100vh - ($footer-height + $header-height));
+}
 
 .rec-dot_active {
   background-color: $main-color !important;
@@ -85,15 +75,14 @@
   height: 100%;
 }
 
-.mapboxgl-popup-content {
-  padding: 16px;
-  border-radius: 4px;
-  .mapboxgl-popup-close-button {
-    font-size: 18px;
-    transition: all 0.3s;
-    &:hover {
-      color: #fff;
-      background-color: $main-color;
-    }
+.disabled-page {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+@media screen and (max-width: $ipad) {
+  Html,
+  body {
+    overflow-x: hidden;
   }
 }

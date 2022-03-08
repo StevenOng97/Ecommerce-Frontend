@@ -1,12 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBaseball,
-  faBed,
-  faBeer,
-  faBell,
-  faBlender,
+  faTwitter,
+  faFacebook,
+  faLinkedin,
+  faInstagram,
   IconDefinition,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-brands-svg-icons';
 import './style.scss';
 import './responsive.scss';
 
@@ -39,27 +38,22 @@ const Footer = () => {
   const socialIcon: socialIconInterface[] = [
     {
       name: 'facebook',
-      icon: faBaseball,
+      icon: faFacebook,
       url: '',
     },
     {
       name: 'twitter',
-      icon: faBed,
+      icon: faTwitter,
       url: '',
     },
     {
       name: 'instagram',
-      icon: faBeer,
+      icon: faInstagram,
       url: '',
     },
     {
       name: 'Skype',
-      icon: faBell,
-      url: '',
-    },
-    {
-      name: 'Pinterest',
-      icon: faBlender,
+      icon: faLinkedin,
       url: '',
     },
   ];
