@@ -6,7 +6,9 @@ import { AnimatePresence } from 'framer-motion';
 import Loader from './components/Loader';
 import './main.scss';
 import LandingPage from './modules/landing-page';
-import LoginPage from './modules/login-page';
+
+import 'react-phone-input-2/lib/style.css'
+import RegisterPage from './modules/register-page';
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
       <AnimatePresence exitBeforeEnter>
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<LandingPage />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route path="register" element={<RegisterPage />} />
         </Routes>
       </AnimatePresence>
     </div>

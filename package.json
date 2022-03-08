@@ -29,6 +29,7 @@
     "react-elastic-carousel": "^0.11.5",
     "react-hook-form": "^7.27.1",
     "react-map-gl": "^7.0.9",
+    "react-phone-input-2": "^2.15.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
