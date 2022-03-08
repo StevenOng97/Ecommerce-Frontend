@@ -4,7 +4,7 @@ import {
   faUser,
   faShoppingCart,
   faBars,
-  faXmark
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
 import './responsive.scss';
@@ -16,7 +16,7 @@ import item5 from '../../../../assets/item5.png';
 import { useState } from 'react';
 import { Card } from '../../../../interface/Card';
 import CartItem from './CartItem';
-
+import { Link } from 'react-router-dom';
 
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
@@ -110,20 +110,28 @@ const Header = (props: any) => {
     <div className="header">
       <div className="container d-flex align-items-center justify-content-between">
         <div className="logo-wrapper">
-          <a href="/">
+          <Link to="/">
             style
             <span>shop</span>
-          </a>
+          </Link>
         </div>
-        <div className={`center-items-wrapper ${show && "show"} `}>
+        <div className={`center-items-wrapper ${show && 'show'} `}>
           <div className={`closeBtn-wrapper`}>
-            <FontAwesomeIcon icon={faXmark} className="closeBtn" onClick={() => { setShow(false) }} />
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="closeBtn"
+              onClick={() => {
+                setShow(false);
+              }}
+            />
           </div>
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
           <span><FontAwesomeIcon icon={faSearch} /></span>
-          <span><FontAwesomeIcon icon={faUser} /></span>
+          <Link to="/login">
+            <span><FontAwesomeIcon icon={faUser} /></span>
+          </Link>
           <div
             className="cart position-relative"
             onClick={() => setOpenCart(!isOpenCart)}
@@ -135,22 +143,22 @@ const Header = (props: any) => {
           </div>
           <span><FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} /></span>
 
-          {isOpenCart && (
-            <div className="position-absolute cart-wrapper animated">
-              <div className="fix-margin">
-                {renderProduct()}
-                <div className="total d-flex">
-                  <span>Total: </span>
-                  <h6 className="mb-0">
-                    $12314.01
-                  </h6>
+          {
+            isOpenCart && (
+              <div className="position-absolute cart-wrapper animated">
+                <div className="fix-margin">
+                  {renderProduct()}
+                  <div className="total d-flex">
+                    <span>Total: </span>
+                    <h6 className="mb-0">$12314.01</h6>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+            )
+          }
+        </div >
+      </div >
+    </div >
   );
 };
 export default Header;

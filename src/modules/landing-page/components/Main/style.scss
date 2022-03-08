@@ -15,8 +15,7 @@
       width: 140px;
     }
   }
-  // background: url('../../../../assets/banner.jpg') no-repeat center center;
-  height: calc(100vh);
+  height: 100vh;
   margin-top: 88px;
   background-size: cover;
   width: 100%;
@@ -25,4 +24,8 @@
     height: inherit;
     object-fit: cover;
   }
+}
+
+@media (-webkit-video-playable-inline) {
+  video { display: initial; }
 }
