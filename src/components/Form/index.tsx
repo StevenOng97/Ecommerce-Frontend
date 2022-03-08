@@ -12,7 +12,7 @@ const Form = ({ children, submit }: any) => {
         <Button
           className="main-btn"
           type="submit"
-          context="submit"
+          context="Submit"
         />
       </div>
     </form>

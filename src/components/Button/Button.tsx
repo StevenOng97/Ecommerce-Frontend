@@ -2,7 +2,7 @@ import React, { FormEventHandler, MouseEventHandler } from 'react'
 
 interface IButton {
     context: string,
-    type?: HTMLButtonElement["type"],
+    type?: "button" | "reset" | "submit" | undefined,
     contextStyle?: string,
     className?: string,
     onChange?: FormEventHandler
