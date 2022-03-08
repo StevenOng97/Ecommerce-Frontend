@@ -4,10 +4,9 @@ $marginLeft: 20px;
 
 .category__section {
   opacity: 0;
-
   .container {
     > div {
-      background-size:cover!important;
+      background-size: cover !important;
       width: calc(calc(100% / $columns) - $marginLeft);
       margin-left: $marginLeft;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

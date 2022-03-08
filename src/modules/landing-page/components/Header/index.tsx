@@ -128,9 +128,9 @@ const Header = (props: any) => {
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
-          <FontAwesomeIcon icon={faSearch} />
+          <span><FontAwesomeIcon icon={faSearch} /></span>
           <Link to="/login">
-            <FontAwesomeIcon icon={faUser} />
+            <span><FontAwesomeIcon icon={faUser} /></span>
           </Link>
           <div
             className="cart position-relative"
@@ -141,28 +141,24 @@ const Header = (props: any) => {
               <span>{props.cartCount}</span>
             </div>
           </div>
-          <FontAwesomeIcon
-            icon={faBars}
-            className="dropDownBtn"
-            onClick={() => {
-              setShow(true);
-            }}
-          />
+          <span><FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} /></span>
 
-          {isOpenCart && (
-            <div className="position-absolute cart-wrapper animated">
-              <div className="fix-margin">
-                {renderProduct()}
-                <div className="total d-flex">
-                  <span>Total: </span>
-                  <h6 className="mb-0">$12314.01</h6>
+          {
+            isOpenCart && (
+              <div className="position-absolute cart-wrapper animated">
+                <div className="fix-margin">
+                  {renderProduct()}
+                  <div className="total d-flex">
+                    <span>Total: </span>
+                    <h6 className="mb-0">$12314.01</h6>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
+            )
+          }
+        </div >
+      </div >
+    </div >
   );
 };
 export default Header;
