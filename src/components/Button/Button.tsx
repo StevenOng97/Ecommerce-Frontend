@@ -2,6 +2,7 @@ import React, { FormEventHandler, MouseEventHandler } from 'react'
 
 interface IButton {
     context: string,
+    type?: HTMLButtonElement["type"],
     contextStyle?: string,
     className?: string,
     onChange?: FormEventHandler
@@ -11,18 +12,20 @@ interface IButton {
 function Button({
     context,
     contextStyle,
+    type = "button",
     className = "main-btn",
     onChange,
     onClick
 }: IButton) {
     return (
-        <div
+        <button
             className={`btn ${className}`}
+            type={type}
             onChange={onChange}
             onClick={onClick}
         >
             <span className={contextStyle}>{context}</span>
-        </div>
+        </button>
     )
 }
 
