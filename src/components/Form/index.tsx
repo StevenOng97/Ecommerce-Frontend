@@ -1,3 +1,4 @@
+import Button from '../Button/Button';
 import './style.scss';
 
 const Form = ({ children, submit, btnText = "Submit" }: any) => {
@@ -5,9 +6,11 @@ const Form = ({ children, submit, btnText = "Submit" }: any) => {
     <form className="form__container form-group" onSubmit={submit}>
       {children}
       <div className="w-100 text-center">
-        <button className="btn main-btn" type="submit">
-          {btnText}
-        </button>
+        <Button
+          className="main-btn"
+          type="submit"
+          context={btnText}
+        />
       </div>
     </form>
   );

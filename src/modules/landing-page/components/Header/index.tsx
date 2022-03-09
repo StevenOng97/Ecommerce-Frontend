@@ -141,7 +141,7 @@ const Header = (props: any) => {
               <span>{props.cartCount}</span>
             </div>
           </div>
-          <span><FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} /></span>
+          <FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} />
 
           {
             isOpenCart && (

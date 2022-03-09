@@ -1,3 +1,5 @@
+import { Button } from 'bootstrap';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -7,6 +9,7 @@ import LandingPage from './modules/landing-page';
 
 import 'react-phone-input-2/lib/style.css'
 import RegisterPage from './modules/register-page';
+
 
 function App() {
   const loading = useSelector((state: any) => state.products.isLoading);
