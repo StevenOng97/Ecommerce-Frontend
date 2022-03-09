@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { Card } from '../../../../interface/Card';
 import CartItem from './CartItem';
 import { Link } from 'react-router-dom';
-import FaIcon from '../../../../components/FaIcon/FaIcon';
+import Icon from '../../../../components/Icon/Icon';
 
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
@@ -118,25 +118,25 @@ const Header = (props: any) => {
         </div>
         <div className={`center-items-wrapper ${show && 'show'} `}>
           <div className={`closeBtn-wrapper`}>
-            <FaIcon icon={faXmark} className="closeBtn" onClick={()=> { setShow(false)}} />
+            <Icon icon={faXmark} className="closeBtn" onClick={() => { setShow(false) }} />
           </div>
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
-          <FaIcon icon={faSearch} />
+          <Icon icon={faSearch} />
           <Link to="/register">
-            <FaIcon icon={faUser}/>
+            <Icon icon={faUser} />
           </Link>
           <div
             className="cart position-relative"
             onClick={() => setOpenCart(!isOpenCart)}
           >
-            <FaIcon icon={faShoppingCart}/>
+            <Icon icon={faShoppingCart} />
             <div className="counter">
               <span>{props.cartCount}</span>
             </div>
           </div>
-          <FaIcon icon={faBars} className="dropDownBtn" onClick={()=>{setShow(true)}} />
+          <Icon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} />
           {
             isOpenCart && (
               <div className="position-absolute cart-wrapper animated">

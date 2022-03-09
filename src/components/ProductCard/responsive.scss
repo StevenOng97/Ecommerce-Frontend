@@ -1,6 +1,6 @@
 @import "../../scss/variables.scss";
 
-@media screen and (max-width: $ipad) {
+@media screen and (max-width: $laptop) {
   $columns: 3;
   .product-card {
     width: calc(calc(100% / $columns) - $marginLeft);

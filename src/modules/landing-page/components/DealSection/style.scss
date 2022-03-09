@@ -7,20 +7,22 @@ $timerColumns: 4;
 
 .deal__section {
   background: #f2f2f2;
+  position: relative;
   .container > div {
     width: calc(calc(100% / $columns) - $marginLeft);
     margin-left: $marginLeft;
   }
+
   .text-wrapper {
     flex-direction: column;
     justify-content: center;
     gap: 50px;
+    z-index: 1;
 
     text-align: center;
     button {
       width: 140px;
     }
-
     .timer-wrapper {
       display: inline-block;
       .timer {

@@ -8,7 +8,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import './style.scss';
 import './responsive.scss';
-import FaIcon from '../../../../components/FaIcon/FaIcon';
+import Icon from '../../../../components/Icon/Icon';
 
 interface contactInterface {
   name: string;
@@ -78,7 +78,7 @@ const Footer = () => {
               return (
                 <li key={index}>
                   <a href={item.url}>
-                    <FaIcon icon={item.icon} />
+                    <Icon icon={item.icon} />
                   </a>
                 </li>
               );
