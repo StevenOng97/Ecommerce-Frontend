@@ -1,6 +1,7 @@
 import './style.scss';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import FaIcon from '../../../../../components/FaIcon/FaIcon';
 
 const FeedbackCard = ({ card }: any) => {
   const renderStar = (): JSX.Element[] => {
@@ -8,7 +9,7 @@ const FeedbackCard = ({ card }: any) => {
 
     return [...new Array(totalStars)].map((star: number, index) => {
       const className = card.star > index ? 'active-star star' : 'star';
-      return <FontAwesomeIcon className={className} icon={faStar} key={index} />;
+      return <FaIcon icon={faStar} className={className} key={index}/>
     });
   };
 

@@ -17,6 +17,7 @@ import { useState } from 'react';
 import { Card } from '../../../../interface/Card';
 import CartItem from './CartItem';
 import { Link } from 'react-router-dom';
+import FaIcon from '../../../../components/FaIcon/FaIcon';
 
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
@@ -117,32 +118,25 @@ const Header = (props: any) => {
         </div>
         <div className={`center-items-wrapper ${show && 'show'} `}>
           <div className={`closeBtn-wrapper`}>
-            <FontAwesomeIcon
-              icon={faXmark}
-              className="closeBtn"
-              onClick={() => {
-                setShow(false);
-              }}
-            />
+            <FaIcon icon={faXmark} className="closeBtn" onClick={()=> { setShow(false)}} />
           </div>
           <ul className="d-flex p-0 m-0">{renderCenterItems()}</ul>
         </div>
         <div className="right-items-wrapper position-relative">
-          <FontAwesomeIcon icon={faSearch} />
+          <FaIcon icon={faSearch} />
           <Link to="/register">
-            <FontAwesomeIcon icon={faUser} />
+            <FaIcon icon={faUser}/>
           </Link>
           <div
             className="cart position-relative"
             onClick={() => setOpenCart(!isOpenCart)}
           >
-            <FontAwesomeIcon icon={faShoppingCart} />
+            <FaIcon icon={faShoppingCart}/>
             <div className="counter">
               <span>{props.cartCount}</span>
             </div>
           </div>
-          <FontAwesomeIcon icon={faBars} className="dropDownBtn" onClick={() => { setShow(true) }} />
-
+          <FaIcon icon={faBars} className="dropDownBtn" onClick={()=>{setShow(true)}} />
           {
             isOpenCart && (
               <div className="position-absolute cart-wrapper animated">

@@ -14,8 +14,13 @@
     }
   }
   .category-card-wrapper {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     .category-card {
-      margin: 0.3rem 4rem;
+      width: 50%;
+      margin-bottom: 0.5rem;
     }
   }
 }
