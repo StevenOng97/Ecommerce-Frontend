@@ -15,7 +15,8 @@ function Button({
     type = "button",
     className = "main-btn",
     onChange,
-    onClick
+    onClick,
+    ...props
 }: IButton) {
     return (
         <button
@@ -23,6 +24,7 @@ function Button({
             type={type}
             onChange={onChange}
             onClick={onClick}
+            {...props}
         >
             <span className={contextStyle}>{context}</span>
         </button>
