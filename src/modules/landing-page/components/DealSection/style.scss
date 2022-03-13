@@ -24,7 +24,9 @@ $timerColumns: 4;
       width: 140px;
     }
     .timer-wrapper {
-      display: inline-block;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 $marginLeft;
       .timer {
         // width: 120px;
         height: 120px;
@@ -32,7 +34,6 @@ $timerColumns: 4;
         color: $main-color;
         border-radius: 50%;
         width: calc(calc(100% / $timerColumns) - $marginLeft);
-        margin-left: $marginLeft;
         position: relative;
         display: flex;
         justify-content: center;
