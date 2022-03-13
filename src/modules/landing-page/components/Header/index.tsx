@@ -22,7 +22,7 @@ import Icon from '../../../../components/Icon/Icon';
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
 const Header = (props: any) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState<boolean>(false);
 
   const [isOpenCart, setOpenCart] = useState<boolean>(false);
   const renderCenterItems = (): JSX.Element[] => {

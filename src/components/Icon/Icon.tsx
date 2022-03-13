@@ -1,26 +1,21 @@
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FocusEventHandler, FormEventHandler } from 'react';
 
-interface IIcon {
+type OptinalFlags<Type> = {
+    [Property in keyof Type]?: Type[Property] | any;
+};
+
+type OptinalHTMLAttributes = OptinalFlags<React.HTMLAttributes<HTMLDivElement>>;
+
+interface IIcon extends OptinalHTMLAttributes {
     icon: IconDefinition,
-    className?: string
-    onClick?: FormEventHandler,
-    onBlur?: FocusEventHandler
-}
+};
 
-function Icon({
-    icon,
-    className,
-    onClick,
-    onBlur,
-}: IIcon) {
+function Icon({ icon, ...divAttributes }: IIcon) {
     return (
         <FontAwesomeIcon
             icon={icon}
-            className={className}
-            onClick={onClick}
-            onBlur={onBlur}
+            {...divAttributes}
         />
     )
 }
