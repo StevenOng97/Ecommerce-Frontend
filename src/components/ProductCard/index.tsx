@@ -1,6 +1,7 @@
 import './style.scss';
 import './responsive.scss';
 import Button from '../Button/Button';
+
 const ProductCard = ({ card }: any) => {
   const {
     sale = '',
