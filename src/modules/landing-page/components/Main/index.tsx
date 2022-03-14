@@ -7,7 +7,7 @@ import HeroImage from '../../../../assets/Hero1.png';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Main = () => {
-  const [src, setSrc] = useState<any>(process.env.REACT_APP_HERO_VIDEO_SRC);
+  const [src, setSrc] = useState<any>(Hero);
   const [isError, setError] = useState<any>(null);
   const videoRef = useRef<any>(null);
 

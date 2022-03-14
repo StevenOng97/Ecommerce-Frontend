@@ -22,7 +22,7 @@ const Category = ({ cardAction }: any) => {
     {
       label: "ACCESSORIES'S",
       image: card2,
-      action: () => cardAction('accessory'),
+      action: () => cardAction('accessories'),
     },
     {
       label: "MENS'S",

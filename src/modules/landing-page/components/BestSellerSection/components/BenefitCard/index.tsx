@@ -1,5 +1,4 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './style.scss';
 import Icon from '../../../../../../components/Icon/Icon';
 
