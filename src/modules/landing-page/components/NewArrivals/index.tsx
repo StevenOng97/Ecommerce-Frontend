@@ -3,7 +3,7 @@ import { Card } from '../../../../interface/Card';
 import CategoryCard from './components/CategoryCard';
 import './style.scss';
 import './responsive.scss';
-import { useCallback, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import { useSelector } from 'react-redux';
 
@@ -14,14 +14,14 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
 
   const productsFromApi = useSelector((state: any) => state.products.products);
 
-  const finalProducts = useCallback(() => {
-    return productsFromApi.map((product: any) => {
+  const finalProducts = useMemo(() => {
+    return productsFromApi.map((product:any) => {
       return {
         ...product,
         action: () => getItemToCart(product._id)
       }
     })
-  }, [productsFromApi]);
+  }, [productsFromApi])
 
   const categories: Card[] = [
     {
@@ -55,7 +55,7 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
   };
 
   const renderProduct = (): JSX.Element[] => {
-    return finalProducts().map((product: any, i: any) => {
+    return finalProducts.map((product: any, i: any) => {
       return <ProductCard card={product} key={i} />;
     });
   };

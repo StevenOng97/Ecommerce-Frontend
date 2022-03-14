@@ -11,7 +11,7 @@ import {
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import BenefitCard from './components/BenefitCard';
-import { useCallback, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import { useSelector } from 'react-redux';
 
@@ -30,13 +30,13 @@ interface Delivery {
 
 const BestSellerSection = ({ getItemToCart }: any) => {
   const productsFromApi = useSelector((state: any) => state.products.products);
-  const finalProducts = useCallback(() => {
+  const finalProducts = useMemo(() => {
     return productsFromApi.map((product: any) => {
       return {
         ...product,
-        action: () => getItemToCart(product._id)
-      }
-    })
+        action: () => getItemToCart(product._id),
+      };
+    });
   }, [productsFromApi]);
 
   const containerRef: any = useRef(null);
