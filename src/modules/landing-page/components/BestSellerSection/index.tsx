@@ -30,7 +30,7 @@ interface Delivery {
 
 const BestSellerSection = ({ getItemToCart }: any) => {
   const productsFromApi = useSelector((state: any) => state.products.products);
-  const finalProducts = useMemo(() => {
+  const products = useMemo(() => {
     return productsFromApi.map((product: any) => {
       return {
         ...product,
@@ -67,7 +67,7 @@ const BestSellerSection = ({ getItemToCart }: any) => {
   ];
 
   const renderProduct = (): JSX.Element[] => {
-    return finalProducts().map((product: any, i: any) => {
+    return products.map((product: any, i: any) => {
       return <ProductCard card={product} key={i} />;
     });
   };
