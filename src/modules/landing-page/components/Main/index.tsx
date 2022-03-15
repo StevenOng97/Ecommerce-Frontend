@@ -24,7 +24,7 @@ const Main = () => {
     }
   }, []);
 
-  const videoSrc = useMemo(() => Hero, []);
+  const videoSrc = useMemo(() => process.env.REACT_APP_HERO_VIDEO_SRC, []);
 
   if (onScreen && videoRef.current) {
     videoRef.current.play();
