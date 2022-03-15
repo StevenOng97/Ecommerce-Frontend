@@ -9,7 +9,7 @@ const Main = () => {
   const [isError, setError] = useState<any>(null);
   const videoRef = useRef<any>(null);
   const onMobileScreen = window.innerWidth <= 997;
-  const rootMargin = onMobileScreen ? '0' : '-300px';
+  const rootMargin = onMobileScreen ? '0px' : '-300px';
   const onScreen = useOnScreen(videoRef, rootMargin, 0.1, false);
 
   const handleError = (videoElement: any) => {

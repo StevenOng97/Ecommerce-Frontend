@@ -45,7 +45,7 @@ export const countTimeDiff = (startDate: Date, endDate: Date): Timer => {
 };
 
 export const modifyImagesArray = (imageUrl: string[]) => {
-  const word = '/f_auto';
+  const word = '/h_153,w_153/f_auto';
   return imageUrl.map((image: any) => {
     const index = image.indexOf('upload');
     return image.substr(0, index + 6) + word + image.substr(index + 6);
