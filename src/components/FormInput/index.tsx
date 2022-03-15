@@ -104,9 +104,7 @@ const FormInput = <TFormValues extends Record<string, unknown>>({
         errors={errors}
         name={name as any}
         render={({ message }) => (
-          <small className="mb-0 text-danger error-text">
-            {message || 'Your password is not the same'}
-          </small>
+          <small className="mb-0 text-danger error-text">{message}</small>
         )}
       />
     </div>
