@@ -3,25 +3,28 @@ import { Card } from '../../../../interface/Card';
 import CategoryCard from './components/CategoryCard';
 import './style.scss';
 import './responsive.scss';
-import { useMemo, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import { useSelector } from 'react-redux';
 
 const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
   const containerRef: any = useRef(null);
+  const [products, setProducts] = useState<any[]>([]);
+  const productsFromApi = useSelector((state: any) => state.products.products);
 
   const onScreen = useOnScreen(containerRef, '-200px', 0.1);
 
-  const productsFromApi = useSelector((state: any) => state.products.products);
-
-  const products = useMemo(() => {
-    return productsFromApi.map((product:any) => {
+  useEffect(() => {
+    const finalProduct = productsFromApi.map((product: any) => {
       return {
         ...product,
-        action: () => getItemToCart(product._id)
-      }
-    })
-  }, [productsFromApi])
+        action: () => getItemToCart(product._id),
+      };
+    });
+
+    setProducts(finalProduct);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [productsFromApi]);
 
   const categories: Card[] = [
     {

@@ -11,7 +11,7 @@ import {
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 import BenefitCard from './components/BenefitCard';
-import { useMemo, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import { useSelector } from 'react-redux';
 
@@ -30,13 +30,17 @@ interface Delivery {
 
 const BestSellerSection = ({ getItemToCart }: any) => {
   const productsFromApi = useSelector((state: any) => state.products.products);
-  const products = useMemo(() => {
-    return productsFromApi.map((product: any) => {
+  const [products, setProducts] = useState<any[]>([]);
+  useEffect(() => {
+    const finalProduct = productsFromApi.map((product: any) => {
       return {
         ...product,
         action: () => getItemToCart(product._id),
       };
     });
+
+    setProducts(finalProduct);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsFromApi]);
 
   const containerRef: any = useRef(null);
