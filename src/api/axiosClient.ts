@@ -18,7 +18,8 @@ axiosClient.interceptors.response.use((response) => {
 
   return response;
 }, (error) => {
-  throw (error);
+  const errorMessage = error.response.data.error;
+  throw (errorMessage || error);
 })
 
 export default axiosClient;
