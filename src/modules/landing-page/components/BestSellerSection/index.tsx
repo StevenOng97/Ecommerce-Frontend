@@ -14,6 +14,7 @@ import BenefitCard from './components/BenefitCard';
 import { useEffect, useRef, useState } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import { useSelector } from 'react-redux';
+import { modifyImagesArray } from '../../../../constants/helpers';
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -32,15 +33,23 @@ const BestSellerSection = ({ getItemToCart }: any) => {
   const productsFromApi = useSelector((state: any) => state.products.products);
   const [products, setProducts] = useState<any[]>([]);
   useEffect(() => {
-    const finalProduct = productsFromApi.map((product: any) => {
+    const imagesMapping = productsFromApi.map(
+      (products: any) => products.images
+    );
+    const finalImages = imagesMapping.map((image: string[]) => {
+      return modifyImagesArray(image);
+    });
+
+    const finalProduct = productsFromApi.map((product: any, i: any) => {
       return {
         ...product,
+        images: finalImages[i],
         action: () => getItemToCart(product._id),
       };
     });
 
     setProducts(finalProduct);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsFromApi]);
 
   const containerRef: any = useRef(null);

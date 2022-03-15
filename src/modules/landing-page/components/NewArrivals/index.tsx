@@ -6,6 +6,7 @@ import './responsive.scss';
 import { useEffect, useRef, useState } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 import { useSelector } from 'react-redux';
+import { modifyImagesArray } from '../../../../constants/helpers';
 
 const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
   const containerRef: any = useRef(null);
@@ -15,15 +16,23 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
   const onScreen = useOnScreen(containerRef, '-200px', 0.1);
 
   useEffect(() => {
-    const finalProduct = productsFromApi.map((product: any) => {
+    const imagesMapping = productsFromApi.map(
+      (products: any) => products.images
+    );
+    const finalImages = imagesMapping.map((image: string[]) => {
+      return modifyImagesArray(image);
+    });
+
+    const finalProduct = productsFromApi.map((product: any, i: any) => {
       return {
         ...product,
+        images: finalImages[i],
         action: () => getItemToCart(product._id),
       };
     });
 
     setProducts(finalProduct);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsFromApi]);
 
   const categories: Card[] = [

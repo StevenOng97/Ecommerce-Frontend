@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import './style.scss';
 import './responsive.scss';
-import Hero from '../../../../assets/Hero.mp4';
 import HeroImage from '../../../../assets/Hero1.png';
 
 import useOnScreen from '../../../../hooks/UseOnScreen';

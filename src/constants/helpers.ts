@@ -5,30 +5,36 @@ export const countTimeDiff = (startDate: Date, endDate: Date): Timer => {
   let dayDiff: any;
   switch (currentDay) {
     case 0: //Sunday
-      dayDiff = "0";
+      dayDiff = '0';
       break;
     case 1: //Monday
-      dayDiff = "6";
+      dayDiff = '6';
       break;
     case 2: //Tuesday
-      dayDiff = "5";
+      dayDiff = '5';
       break;
     case 3: //Wednesday
-      dayDiff = "4";
+      dayDiff = '4';
       break;
     case 4: //Thursday
-      dayDiff = "3";
+      dayDiff = '3';
       break;
     case 5: //Friday
-      dayDiff = "2";
+      dayDiff = '2';
       break;
     case 6: //Saturday
-      dayDiff = "1";
+      dayDiff = '1';
       break;
   }
-  let hourDiff = (('0') + (endDate.getHours() - startDate.getHours()).toString()).slice(-2);
-  let minDiff = (('0') +(endDate.getMinutes() - startDate.getMinutes()).toString()).slice(-2);
-  let secDiff = (('0') + (endDate.getSeconds() - startDate.getSeconds()).toString()).slice(-2);
+  let hourDiff = (
+    '0' + (endDate.getHours() - startDate.getHours()).toString()
+  ).slice(-2);
+  let minDiff = (
+    '0' + (endDate.getMinutes() - startDate.getMinutes()).toString()
+  ).slice(-2);
+  let secDiff = (
+    '0' + (endDate.getSeconds() - startDate.getSeconds()).toString()
+  ).slice(-2);
 
   return {
     day: dayDiff,
@@ -36,4 +42,12 @@ export const countTimeDiff = (startDate: Date, endDate: Date): Timer => {
     mins: minDiff,
     sec: secDiff,
   };
+};
+
+export const modifyImagesArray = (imageUrl: string[]) => {
+  const word = '/f_auto';
+  return imageUrl.map((image: any) => {
+    const index = image.indexOf('upload');
+    return image.substr(0, index + 6) + word + image.substr(index + 6);
+  });
 };
