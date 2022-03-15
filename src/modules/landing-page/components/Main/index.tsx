@@ -8,12 +8,18 @@ import useOnScreen from '../../../../hooks/UseOnScreen';
 const Main = () => {
   const [isError, setError] = useState<any>(null);
   const videoRef = useRef<any>(null);
-
-  const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
+  const onMobileScreen = window.innerWidth <= 997;
+  const rootMargin = onMobileScreen ? '0' : '-300px';
+  const onScreen = useOnScreen(videoRef, rootMargin, 0.1, false);
 
   const handleError = (videoElement: any) => {
     setError(true);
-    console.log("Error " + videoRef.current.error.code + "; details: " + videoRef.current.error.message);
+    console.log(
+      'Error ' +
+        videoRef.current.error.code +
+        '; details: ' +
+        videoRef.current.error.message
+    );
   };
 
   useEffect(() => {

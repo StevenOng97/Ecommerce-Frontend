@@ -13,7 +13,9 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
   const [products, setProducts] = useState<any[]>([]);
   const productsFromApi = useSelector((state: any) => state.products.products);
 
-  const onScreen = useOnScreen(containerRef, '-200px', 0.1);
+  const onMobileScreen = window.innerWidth <= 997;
+  const rootMargin = onMobileScreen ? '0px' : '-200px';
+  const onScreen = useOnScreen(containerRef, rootMargin, 0.1);
 
   useEffect(() => {
     const imagesMapping = productsFromApi.map(
