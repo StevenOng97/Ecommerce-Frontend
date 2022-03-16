@@ -18,7 +18,7 @@ const ProductCard = ({ card }: any) => {
     price,
     title,
     images = [],
-    action = () => {},
+    action = () => { },
   } = card;
 
   const priceCardClass = priceAfterSale ? 'line-through' : 'price-after-sale';
@@ -33,10 +33,8 @@ const ProductCard = ({ card }: any) => {
     >
       {(sale || isNew) && (
         <div
-          className={`product-tag d-flex flex-column align-items-center ${
-            isNew ? 'product-tag-new' : 'product-tag-sale'
-          }`}
-        >
+          className={`product-tag d-flex flex-column align-items-center ${isNew ? 'product-tag-new' : 'product-tag-sale'
+            }`}>
           <span className="text-white">{isNew ? 'NEW' : `-${sale}`}</span>
         </div>
       )}
@@ -48,7 +46,7 @@ const ProductCard = ({ card }: any) => {
           onClick={action}
         />
       </div>
-      {images.length > 0 && <img src={images[0]} alt="product" />}
+      {images.length > 0 && <img src={images[0]} alt="product" className="product-card-image" />}
       <p className="fw-bold text-center truncate">{title}</p>
       <div className="price-wrapper d-flex justify-content-center">
         {priceAfterSale && (

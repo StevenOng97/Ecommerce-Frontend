@@ -120,15 +120,19 @@ const Header = (props: any) => {
 
   const handleClickRegister = (e: any): any => {
     const coordinate = e.target.getBoundingClientRect();
-    const center = (coordinate.left + coordinate.right) / 2;
+    const center = (coordinate.right - coordinate.left) / 2;
     const bottom = coordinate.bottom - 2;
+    console.log(coordinate.left, coordinate.right)
+    console.log(center);
     setCoordinate({ center, bottom });
     setShowRegisterBox(!showRegisterBox);
   }
 
   return (
     <div className="header">
+
       <div className="container d-flex align-items-center justify-content-between">
+
         <div className="logo-wrapper">
           <Link to="/">
             style
@@ -143,12 +147,11 @@ const Header = (props: any) => {
         </div>
         <div className="right-items-wrapper position-relative">
           <Icon icon={faSearch} />
-          {/* <Link to="/register" */}
-          <div ref={registerIcon} onClick={handleClickRegister}>
+
+          <div ref={registerIcon} onClick={handleClickRegister} style={{ position: "relative" }}>
             <Icon icon={faUser} />
-          
-          {/* </Link> */}
-          <AuthSubmenu className={`authenticated-dropdown ${showRegisterBox && "show-register-box"}`} coordinate={coordinate} isAuth={isAuth}/>
+            <AuthSubmenu className={`authenticated-dropdown ${showRegisterBox && "show-register-box"}`} coordinate={coordinate} isAuth={isAuth} />
+
           </div>
           <div
             className="cart position-relative"
