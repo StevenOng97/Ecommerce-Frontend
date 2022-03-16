@@ -21,15 +21,21 @@ import Icon from '../../../../components/Icon/Icon';
 import { useSelector } from 'react-redux';
 import store from '../../../../store';
 import AuthSubmenu from './AuthSubmenu/AuthSubmenu';
+import { relative } from 'path/posix';
 
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
 const Header = (props: any) => {
-  const isAuth = useSelector((state: any) => state.auth.isAuth)
-
   const [show, setShow] = useState<boolean>(false);
   const [isOpenCart, setOpenCart] = useState<boolean>(false);
+  const isAuth = useSelector((state: any) => state.auth.isAuth)
+  const [showRegisterBox, setShowRegisterBox] = useState<boolean>(false);
+  const [coordinate, setCoordinate] = useState<{ center: number, bottom: number }>({
+    center: 0,
+    bottom: 0
+  })
   const registerIcon = useRef(null);
+
   const renderCenterItems = (): JSX.Element[] => {
     return data.map((item, i) => {
       return <li key={i}>{item.toUpperCase()}</li>;
@@ -112,11 +118,12 @@ const Header = (props: any) => {
     });
   };
 
-  const handleMouseOverRegister = (e: any): any => {
+  const handleClickRegister = (e: any): any => {
     const coordinate = e.target.getBoundingClientRect();
     const center = (coordinate.left + coordinate.right) / 2;
     const bottom = coordinate.bottom - 2;
-    console.log(center, bottom);
+    setCoordinate({ center, bottom });
+    setShowRegisterBox(!showRegisterBox);
   }
 
   return (
@@ -136,10 +143,13 @@ const Header = (props: any) => {
         </div>
         <div className="right-items-wrapper position-relative">
           <Icon icon={faSearch} />
-          <Link to="/register" ref={registerIcon} onMouseOver={handleMouseOverRegister}>
+          {/* <Link to="/register" */}
+          <div ref={registerIcon} onClick={handleClickRegister}>
             <Icon icon={faUser} />
-          </Link>
-          <AuthSubmenu className="authenticated-dropdown true" coordinate="" />
+          
+          {/* </Link> */}
+          <AuthSubmenu className={`authenticated-dropdown ${showRegisterBox && "show-register-box"}`} coordinate={coordinate} isAuth={isAuth}/>
+          </div>
           <div
             className="cart position-relative"
             onClick={() => setOpenCart(!isOpenCart)}
