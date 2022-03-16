@@ -12,18 +12,24 @@ import item2 from '../../../../assets/item2.png';
 import item3 from '../../../../assets/item3.png';
 import item4 from '../../../../assets/item4.png';
 import item5 from '../../../../assets/item5.png';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Card } from '../../../../interface/Card';
 import CartItem from './CartItem';
 import { Link } from 'react-router-dom';
 import Icon from '../../../../components/Icon/Icon';
 
+import { useSelector } from 'react-redux';
+import store from '../../../../store';
+import AuthSubmenu from './AuthSubmenu/AuthSubmenu';
+
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
 const Header = (props: any) => {
-  const [show, setShow] = useState<boolean>(false);
+  const isAuth = useSelector((state: any) => state.auth.isAuth)
 
+  const [show, setShow] = useState<boolean>(false);
   const [isOpenCart, setOpenCart] = useState<boolean>(false);
+  const registerIcon = useRef(null);
   const renderCenterItems = (): JSX.Element[] => {
     return data.map((item, i) => {
       return <li key={i}>{item.toUpperCase()}</li>;
@@ -106,6 +112,10 @@ const Header = (props: any) => {
     });
   };
 
+  const handleMouseOverRegister = (e: any): any => {
+    console.log("test");
+  }
+
   return (
     <div className="header">
       <div className="container d-flex align-items-center justify-content-between">
@@ -123,9 +133,10 @@ const Header = (props: any) => {
         </div>
         <div className="right-items-wrapper position-relative">
           <Icon icon={faSearch} />
-          <Link to="/register">
+          <Link to="/register" ref={registerIcon} onMouseOver={handleMouseOverRegister}>
             <Icon icon={faUser} />
           </Link>
+          <AuthSubmenu className="authenticated-dropdown true" coordinate="" />
           <div
             className="cart position-relative"
             onClick={() => setOpenCart(!isOpenCart)}
