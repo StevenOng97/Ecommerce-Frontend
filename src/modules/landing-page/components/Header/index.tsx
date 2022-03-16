@@ -113,7 +113,10 @@ const Header = (props: any) => {
   };
 
   const handleMouseOverRegister = (e: any): any => {
-    console.log("test");
+    const coordinate = e.target.getBoundingClientRect();
+    const center = (coordinate.left + coordinate.right) / 2;
+    const bottom = coordinate.bottom - 2;
+    console.log(center, bottom);
   }
 
   return (
