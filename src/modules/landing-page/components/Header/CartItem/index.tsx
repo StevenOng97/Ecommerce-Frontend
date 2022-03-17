@@ -2,7 +2,6 @@ import React from 'react';
 import './style.scss';
 
 const CartItem = ({ card }: any) => {
-  console.log(card);
 
   const { image, label: name, size } = card;
   const price = card.priceAfterSale | card.price;

@@ -1,0 +1,54 @@
+@import "../../../../../scss/variables.scss";
+@import "../../../../../scss/animation.scss";
+
+.authenticated-dropdown {
+  display: none;
+  position: absolute;
+  border: 1px solid $main-color;
+  background-color: white;
+  border-radius: 0.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.authenticated-dropdown::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-color: $main-color;
+  border-width: 1px 0 0 1px;
+  width: 10px;
+  height: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -6px;
+  background: inherit;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.show-register-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: register-box-animation-fadein 0.5s;
+  > * {
+    margin: 0.5rem;
+  }
+}
+
+.log-out-btn {
+  background-color: red !important;
+}
+
+@keyframes register-box-animation-fadein {
+  from {
+    transform: translate3d(-50%, -10px, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

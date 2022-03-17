@@ -1,14 +1,13 @@
-@import '../../../../../scss/variables';
+@import "../../../../../scss/variables";
 $marginLeft: 20px;
 
 .cart-item-wrapper {
   flex: 1;
-
   padding: 16px;
   background: white;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: all .3s;
+  transition: all 0.3s;
   &:hover {
     background: $main-color;
     color: #fff;
