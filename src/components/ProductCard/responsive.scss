@@ -11,15 +11,14 @@
   .product-card {
     width: calc(calc(100% / $columns) - $marginLeft);
   }
+  .product-card-image {
+    width: 100%;
+    height: 95%;
+  }
 }
 @media screen and (max-width: $mobile) {
   $columns: 1;
   .product-card {
     width: calc(calc(100% / $columns) - $marginLeft);
   }
-}
-
-.product-card-image {
-  width: 100%;
-  height: 100%;
 }

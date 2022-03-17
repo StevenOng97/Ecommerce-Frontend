@@ -18,6 +18,7 @@ $truncate-lines: 3;
   flex-direction: column;
   p {
     -webkit-line-clamp: $truncate-lines;
+    overflow: visible;
   }
   .image__overlay {
     position: absolute;
