@@ -17,7 +17,6 @@
   border-style: solid;
   border-color: $main-color;
   border-width: 1px 0 0 1px;
-  background: transparent;
   width: 10px;
   height: 10px;
   left: 50%;
@@ -34,6 +33,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  animation: register-box-animation-fadein 0.5s;
   > * {
     margin: 0.5rem;
   }
@@ -41,4 +41,13 @@
 
 .log-out-btn {
   background-color: red !important;
+}
+
+@keyframes register-box-animation-fadein {
+  from {
+    transform: translate3d(-50%, -10px, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
 }

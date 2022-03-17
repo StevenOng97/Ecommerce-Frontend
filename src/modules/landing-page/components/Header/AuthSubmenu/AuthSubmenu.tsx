@@ -4,36 +4,37 @@ import Button from "../../../../../components/Button/Button";
 import { Link } from 'react-router-dom';
 
 function AuthSubmenu({ className, coordinate, isAuth }: {
-    className: string,
-    coordinate: { center: number, bottom: number },
-    isAuth: boolean | null,
+  className: string,
+  coordinate: { center: number, bottom: number },
+  isAuth: boolean | null,
 }) {
-    const container = useRef<any>(null);
-    console.log(coordinate);
-    useEffect(() => {
-        const submenu = container.current;
-        const { center, bottom } = coordinate;
-        submenu.style.left = `2px`
-        submenu.style.top = `${bottom - 10}px`;
-    }, [coordinate])
+  const { center, bottom } = coordinate;
 
-    if (isAuth) {
-        return (
-            <div className={className} ref={container}>
-                <Button context="Log out" className="main-btn log-out-btn" />
-            </div>
-        )
-    }
-    else {
-        return (
-            <div className={className} ref={container}>
-                <Link to="/register">
-                    <Button context="Register" />
-                </Link>
-                <Button context="Log in" />
-            </div>
-        )
-    }
+  if (isAuth) {
+    return (
+      <div className={className} style={{
+        left: "2px",
+        top: `${bottom - 10}px`,
+      }}>
+        <Button context="Log out" className="main-btn log-out-btn" />
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className={className} style={{
+        left: "2px",
+        top: `${bottom - 12}px`,
+      }}>
+        <Link to="/register">
+          <Button context="Register" />
+        </Link>
+        <Link to="/login">
+          <Button context="Log in" />
+        </Link>
+      </div>
+    )
+  }
 
 }
 
