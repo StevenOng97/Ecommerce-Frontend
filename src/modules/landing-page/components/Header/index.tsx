@@ -122,8 +122,6 @@ const Header = (props: any) => {
     const coordinate = e.target.getBoundingClientRect();
     const center = (coordinate.right - coordinate.left) / 2;
     const bottom = coordinate.bottom - 2;
-    console.log(coordinate.left, coordinate.right)
-    console.log(center);
     setCoordinate({ center, bottom });
     setShowRegisterBox(!showRegisterBox);
   }
