@@ -12,29 +12,23 @@ import item2 from '../../../../assets/item2.png';
 import item3 from '../../../../assets/item3.png';
 import item4 from '../../../../assets/item4.png';
 import item5 from '../../../../assets/item5.png';
-import { useState, useRef } from 'react';
-import { Card } from '../../../../interface/Card';
-import CartItem from './CartItem';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Icon from '../../../../components/Icon/Icon';
-
 import { useSelector } from 'react-redux';
-import store from '../../../../store';
+import { Card } from '../../../../interface/Card';
+import Icon from '../../../../components/Icon/Icon';
+import CartItem from './CartItem';
 import AuthSubmenu from './AuthSubmenu/AuthSubmenu';
-import { relative } from 'path/posix';
 
 const data = ['home', 'shop', 'promotion', 'pages', 'blog', 'contact'];
 
 const Header = (props: any) => {
   const [show, setShow] = useState<boolean>(false);
   const [isOpenCart, setOpenCart] = useState<boolean>(false);
-  const isAuth = useSelector((state: any) => state.auth.isAuth)
   const [showRegisterBox, setShowRegisterBox] = useState<boolean>(false);
-  const [coordinate, setCoordinate] = useState<{ center: number, bottom: number }>({
-    center: 0,
-    bottom: 0
-  })
-  const registerIcon = useRef(null);
+  const [parentBottomCoordinate, setParentBottomCoordinate] = useState<number>(0);
+  const isAuth = useSelector((state: any) => state.auth.isAuth)
+
 
   const renderCenterItems = (): JSX.Element[] => {
     return data.map((item, i) => {
@@ -120,17 +114,14 @@ const Header = (props: any) => {
 
   const handleClickRegister = (e: any): any => {
     const coordinate = e.target.getBoundingClientRect();
-    const center = (coordinate.right - coordinate.left) / 2;
     const bottom = coordinate.bottom - 2;
-    setCoordinate({ center, bottom });
+    setParentBottomCoordinate(bottom);
     setShowRegisterBox(!showRegisterBox);
   }
 
   return (
     <div className="header">
-
       <div className="container d-flex align-items-center justify-content-between">
-
         <div className="logo-wrapper">
           <Link to="/">
             style
@@ -145,11 +136,9 @@ const Header = (props: any) => {
         </div>
         <div className="right-items-wrapper position-relative">
           <Icon icon={faSearch} />
-
-          <div ref={registerIcon} onClick={handleClickRegister} style={{ position: "relative" }}>
+          <div onClick={handleClickRegister} className="position-relative">
             <Icon icon={faUser} />
-            <AuthSubmenu className={`authenticated-dropdown ${showRegisterBox && "show-register-box"}`} coordinate={coordinate} isAuth={isAuth} />
-
+            <AuthSubmenu className={`authenticated-dropdown ${showRegisterBox && "show-register-box"}`} parentBottomCoordinate={parentBottomCoordinate} isAuth={isAuth} />
           </div>
           <div
             className="cart position-relative"

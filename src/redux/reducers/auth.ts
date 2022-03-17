@@ -1,6 +1,5 @@
 import { Constants } from '../../constants/constant';
 
-
 const initialState = {
   isLoading: null,
   isAuth: null,

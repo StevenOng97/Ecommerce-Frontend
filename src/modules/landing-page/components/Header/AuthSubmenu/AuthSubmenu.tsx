@@ -1,20 +1,18 @@
 import "./style.scss"
-import { useEffect, useRef } from 'react'
-import Button from "../../../../../components/Button/Button";
 import { Link } from 'react-router-dom';
+import Button from "../../../../../components/Button/Button";
 
-function AuthSubmenu({ className, coordinate, isAuth }: {
+function AuthSubmenu({ className, parentBottomCoordinate, isAuth }: {
   className: string,
-  coordinate: { center: number, bottom: number },
+  parentBottomCoordinate: number,
   isAuth: boolean | null,
 }) {
-  const { center, bottom } = coordinate;
 
   if (isAuth) {
     return (
       <div className={className} style={{
         left: "2px",
-        top: `${bottom - 10}px`,
+        top: `${parentBottomCoordinate - 10}px`,
       }}>
         <Button context="Log out" className="main-btn log-out-btn" />
       </div>
@@ -24,7 +22,7 @@ function AuthSubmenu({ className, coordinate, isAuth }: {
     return (
       <div className={className} style={{
         left: "2px",
-        top: `${bottom - 12}px`,
+        top: `${parentBottomCoordinate - 12}px`,
       }}>
         <Link to="/register">
           <Button context="Register" />
@@ -35,7 +33,6 @@ function AuthSubmenu({ className, coordinate, isAuth }: {
       </div>
     )
   }
-
 }
 
 export default AuthSubmenu
