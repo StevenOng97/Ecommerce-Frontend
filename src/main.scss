@@ -28,6 +28,11 @@ body,
   }
 }
 
+.btn-check:focus+.btn, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem transparent;
+}
+
 .truncate {
   word-break: break-word;
   display: -webkit-box;

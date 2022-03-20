@@ -4,6 +4,11 @@ import './style.scss';
 import { useForm } from 'react-hook-form';
 import FormInput from '../../components/FormInput';
 import { Pattern } from '../../constants/patterns';
+import { useDispatch, useSelector } from 'react-redux';
+import { register as registerApi } from '../../redux/actions/auth';
+import ButtonLoader from '../../components/ButtonLoader';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const usernamePattern = {
   value: Pattern.username,
@@ -18,16 +23,32 @@ const emailPattern = {
 const passwordPattern = {
   value: Pattern.password,
   message:
-    'Your password should contains at least 8 characters, at least one letter and one number ',
+    'Your password should contains at least 8 characters, at least one captailize letter and one number',
 };
 
 const RegisterPage = () => {
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state: any) => state.auth.isLoading);
+  const registerError = useSelector((state: any) => state.auth.registerErr);
+  const registerSuccess = useSelector(
+    (state: any) => state.auth.registerSuccess
+  );
+  const [btnContext, setBtnContext] = useState<any>();
+
+  useEffect(() => {
+    if (isLoading) {
+      setBtnContext(<ButtonLoader />);
+    } else {
+      setBtnContext('Register');
+    }
+  }, [isLoading]);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
-    watch
+    watch,
   } = useForm<any>({
     mode: 'all',
   });
@@ -125,16 +146,36 @@ const RegisterPage = () => {
       data[key] = data[key].trim();
     });
 
-    console.log('data', data);
+    const finalData = JSON.parse(JSON.stringify(data));
+    delete finalData.confirmPassword;
+
+    dispatch(registerApi(finalData));
   });
 
   return (
-    <div className="register-page__container overflow-hidden">
+    <div
+      className={`register-page__container overflow-hidden${
+        isLoading ? ` disabled-page` : ''
+      }`}
+    >
       <Layout>
         <div className="body__page">
           <div className="foreground container d-flex align-items-center justify-content-center flex-column w-100 h-100">
-            <Form submit={onSubmit} btnText="Register">
+            <Form submit={onSubmit} btnText={btnContext}>
               {renderRegistrationForm()}
+              {registerError && (
+                <span className="text-danger mb-3 d-block">
+                  {registerError}
+                </span>
+              )}
+              {registerSuccess && (
+                <span className="text-success mb-3 d-block">
+                  You've registered successfully. Click here to {''}
+                  <Link to="/login" className="text-success fw-bold">
+                    Login
+                  </Link>
+                </span>
+              )}
             </Form>
           </div>
         </div>

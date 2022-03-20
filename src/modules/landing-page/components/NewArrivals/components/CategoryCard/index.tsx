@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import './style.scss';
 import Button from '../../../../../../components/Button/Button';
 
-const CategoryCard = ({ categoryCard }: any) => {
-  const { label, action = () => { }, value } = categoryCard;
+const CategoryCard = ({ categoryCard, currentFilter }: any) => {
+  const { label, action = () => {}, value } = categoryCard;
 
-  const [filter, setFilter] = useState<string>('');
-
-  const className = filter === value ? 'category-card active' : 'category-card';
+  const className = currentFilter === value ? 'category-card active' : 'category-card';
   return (
     <Button
       context={label}

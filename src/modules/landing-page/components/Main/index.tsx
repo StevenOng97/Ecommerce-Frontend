@@ -1,22 +1,25 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useMemo } from 'react';
 import './style.scss';
 import './responsive.scss';
-import Hero from '../../../../assets/Hero.mp4';
 import HeroImage from '../../../../assets/Hero1.png';
 
 import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Main = () => {
-  const [src, setSrc] = useState<any>(process.env.REACT_APP_HERO_VIDEO_SRC);
   const [isError, setError] = useState<any>(null);
   const videoRef = useRef<any>(null);
-
-  const onScreen = useOnScreen(videoRef, '-300px', 0.1, false);
+  const onMobileScreen = window.innerWidth <= 997;
+  const rootMargin = onMobileScreen ? '0px' : '-300px';
+  const onScreen = useOnScreen(videoRef, rootMargin, 0.1, false);
 
   const handleError = (videoElement: any) => {
-    setSrc(HeroImage);
     setError(true);
-    console.log("Error " + videoRef.current.error.code + "; details: " + videoRef.current.error.message);
+    console.log(
+      'Error ' +
+      videoRef.current.error.code +
+      '; details: ' +
+      videoRef.current.error.message
+    );
   };
 
   useEffect(() => {
@@ -24,7 +27,9 @@ const Main = () => {
       videoRef.current.defaultMuted = true;
       videoRef.current.muted = true;
     }
-  });
+  }, []);
+
+  const videoSrc = useMemo(() => process.env.REACT_APP_HERO_VIDEO_SRC, []);
 
   if (onScreen && videoRef.current) {
     videoRef.current.play();
@@ -43,7 +48,7 @@ const Main = () => {
           playsInline
           onError={handleError}
         >
-          <source src={src} type="video/mp4" />
+          <source src={videoSrc} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       )}

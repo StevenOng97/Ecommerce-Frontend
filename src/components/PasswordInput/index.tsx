@@ -5,9 +5,9 @@ import React, {
   InputHTMLAttributes,
   useState,
 } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import './style.scss';
+import Icon from '../Icon/Icon';
 export type InputType = 'text' | 'password';
 export type InputProps = {
   id: string;
@@ -47,7 +47,7 @@ const PasswordInput: FC<any> = forwardRef<HTMLInputElement, InputProps>(
           className={className}
           {...props}
         />
-        <FontAwesomeIcon className="position-absolute" icon={faEye} onClick={handleClick} />
+        <Icon className="position-absolute" icon={faEye} onClick={handleClick} />
       </div>
     );
   }
