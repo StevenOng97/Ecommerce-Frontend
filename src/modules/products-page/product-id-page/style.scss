@@ -1,0 +1,20 @@
+@import "../../../scss/variables";
+
+.single-product-wrapper {
+    margin-top: $header-height;
+}
+
+.directory-wrapper {
+    border-bottom: $container-border;
+}
+
+.directory-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.directory-item:not(:first-child):before {
+    content: "   >   ";
+    padding: 1rem;
+}

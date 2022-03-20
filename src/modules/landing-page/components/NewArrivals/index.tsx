@@ -53,7 +53,11 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
       value: 'accessories',
       action: () => cardAction('accessories'),
     },
-    { label: "MEN'S", value: 'men', action: () => cardAction('men') },
+    {
+      label: "MEN'S",
+      value: 'men',
+      action: () => cardAction('men')
+    },
   ];
 
   const renderCategoryCards = (): JSX.Element[] => {
@@ -70,6 +74,8 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
 
   const renderProduct = (): JSX.Element[] => {
     return products.map((product: any, i: any) => {
+      console.log(product);
+
       return <ProductCard card={product} key={i} />;
     });
   };
