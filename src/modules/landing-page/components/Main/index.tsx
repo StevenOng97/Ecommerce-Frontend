@@ -16,9 +16,9 @@ const Main = () => {
     setError(true);
     console.log(
       'Error ' +
-        videoRef.current.error.code +
-        '; details: ' +
-        videoRef.current.error.message
+      videoRef.current.error.code +
+      '; details: ' +
+      videoRef.current.error.message
     );
   };
 
