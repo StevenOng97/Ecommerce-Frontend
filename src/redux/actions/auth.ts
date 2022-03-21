@@ -34,6 +34,6 @@ export const login = (data: any) => {
 
 export const authenticated = (data: any) => {
   return async (dispatch: any) => {
-    dispatch({ type: Constants.AUTHENTICATED, payload: data })
-  }
-}
+    dispatch({ type: Constants.AUTHENTICATED, payload: data });
+  };
+};

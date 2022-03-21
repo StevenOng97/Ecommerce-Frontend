@@ -10,19 +10,22 @@ import 'react-phone-input-2/lib/style.css';
 import RegisterPage from './modules/register-page';
 import LoginPage from './modules/login-page';
 import { authenticated } from './redux/actions/auth';
+import Modal from './components/Modal';
+import useModal from './hooks/UseModal';
 
 function App() {
   const loading = useSelector((state: any) => state.products.isLoading);
   const dispatch = useDispatch();
   const className = loading ? 'App disabled-page' : 'App';
   const location = useLocation();
+  const { showModal } = useModal();
 
   useEffect(() => {
     const token = localStorage.getItem('authToken') || '';
     console.log(token);
     if (token) {
       dispatch(authenticated(token));
-    };
+    }
   }, []);
 
   return (
@@ -35,6 +38,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
         </Routes>
       </AnimatePresence>
+      <Modal showModal={showModal} />
     </div>
   );
 }
