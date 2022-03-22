@@ -23,6 +23,7 @@ function Product() {
 
   useEffect(() => {
     dispatch(fetchProducts)
+    window.scrollTo(0, 0)
   }, []);
 
   // const currentProduct = useSelector((state: any) => state.products.product)
