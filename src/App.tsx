@@ -11,22 +11,29 @@ import RegisterPage from './modules/register-page';
 import LoginPage from './modules/login-page';
 import { authenticated } from './redux/actions/auth';
 import Modal from './components/Modal';
-import useModal from './hooks/UseModal';
+import { handleModalState } from './redux/actions/modal';
 
 function App() {
   const loading = useSelector((state: any) => state.products.isLoading);
+  const showModal = useSelector((state: any) => state.modal.isOpen);
   const dispatch = useDispatch();
   const className = loading ? 'App disabled-page' : 'App';
   const location = useLocation();
-  const { showModal } = useModal();
 
   useEffect(() => {
-    const token = localStorage.getItem('authToken') || '';
-    console.log(token);
+    let token = localStorage.getItem('authToken') || '';
     if (token) {
       dispatch(authenticated(token));
     }
+
+    return () => {
+      token = '';
+    };
   }, []);
+
+  const modalActionBtn = () => {
+    dispatch(handleModalState(false));
+  };
 
   return (
     <div className={className}>
@@ -38,7 +45,7 @@ function App() {
           <Route path="login" element={<LoginPage />} />
         </Routes>
       </AnimatePresence>
-      <Modal showModal={showModal} />
+      <Modal showModal={showModal} closeBtnAction={modalActionBtn} />
     </div>
   );
 }

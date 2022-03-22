@@ -69,6 +69,20 @@ const reducer = (state = initialState, action: any) => {
         token: action.payload,
       };
 
+    case Constants.LOGOUT:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case Constants.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        isAuth: false,
+        token: null,
+      };
+
     default:
       return state;
   }

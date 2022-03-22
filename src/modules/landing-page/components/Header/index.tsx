@@ -29,7 +29,6 @@ const Header = (props: any) => {
   const [parentBottomCoordinate, setParentBottomCoordinate] = useState<number>(0);
   const isAuth = useSelector((state: any) => state.auth.isAuth)
 
-
   const renderCenterItems = (): JSX.Element[] => {
     return data.map((item, i) => {
       return <li key={i}>{item.toUpperCase()}</li>;

@@ -4,7 +4,7 @@ import feedbackCard from './mockData';
 import Carousel from 'react-elastic-carousel';
 import './style.scss';
 import './responsive.scss';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Testimonials = () => {
