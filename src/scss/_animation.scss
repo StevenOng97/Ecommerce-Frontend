@@ -33,32 +33,6 @@
   }
 }
 
-@keyframes easeout {
-  from {
-    // transform: translate3d(40px, 0, 0);
-    opacity: 1;
-  }
-
-  to {
-    transition: opacity 1s ease-in;
-    // transform: translate3d(0, 0, 0);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes easeout {
-  from {
-    // transform: translate3d(40px, 0, 0);
-    opacity: 1;
-  }
-
-  to {
-    transition: opacity 1s ease-in;
-    // transform: translate3d(0, 0, 0);
-    opacity: 0;
-  }
-}
-
 @-webkit-keyframes easeIn {
   from {
     opacity: 0;
