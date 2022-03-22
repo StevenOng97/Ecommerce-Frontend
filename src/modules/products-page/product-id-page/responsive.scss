@@ -1,0 +1,58 @@
+@import "../../../scss/variables";
+
+@media screen and (max-width: 1200px) {
+  .product-quantity-selector {
+    flex-direction: column;
+  }
+  .quantity-selector-wrapper {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .quantity-selector {
+    margin: 0;
+  }
+
+  .product-addtocart-wrapper {
+    margin: 1rem 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .addtocart-responsive {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $laptop) {
+  .single-product-detail {
+    margin-top: 2rem;
+    grid-template-columns: repeat(8, 1fr) !important;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .product-image-list {
+    grid-row-start: 2;
+    grid-column: span 2;
+  }
+  .product-image-highlight {
+    grid-column: span 8;
+    padding: 0;
+    margin-left: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .product-description {
+    grid-column: span 6;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  .product-benefit-wrapper {
+    > div {
+      padding: 0.5rem;
+      > h5 {
+        margin: 0;
+        font-size: 16px;
+      }
+    }
+  }
+}

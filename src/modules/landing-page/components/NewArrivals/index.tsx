@@ -74,8 +74,6 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
 
   const renderProduct = (): JSX.Element[] => {
     return products.map((product: any, i: any) => {
-      console.log(product);
-
       return <ProductCard card={product} key={i} />;
     });
   };

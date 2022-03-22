@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -8,7 +8,6 @@ import 'react-phone-input-2/lib/style.css';
 import LandingPage from './modules/landing-page';
 import RegisterPage from './modules/register-page';
 import LoginPage from './modules/login-page';
-import Products from './modules/products-page';
 import Product from './modules/products-page/product-id-page';
 import { authenticated } from './redux/actions/auth';
 import Modal from './components/Modal';
