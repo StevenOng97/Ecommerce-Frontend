@@ -15,7 +15,7 @@ const modal = {
   },
 };
 
-const Modal = ({ showModal }: any) => {
+const Modal = ({ showModal, closeBtnAction }: any) => {
   return (
     <AnimatePresence>
       {showModal && (
@@ -27,8 +27,10 @@ const Modal = ({ showModal }: any) => {
           exit="hidden"
         >
           <motion.div className="custom-modal" variants={modal}>
-            <p>Want to make another Pizza?</p>
-            <button className="btn main-btn">Start Again</button>
+            <p>Simple Modal</p>
+            <button className="btn main-btn" onClick={closeBtnAction}>
+              Close
+            </button>
           </motion.div>
         </motion.div>
       )}

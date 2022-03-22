@@ -1,5 +1,6 @@
 import productApi from '../../api/productApi';
 import { Constants } from '../../constants/constant';
+import { handleModalState } from './modal';
 
 export const fetchProducts = (queryString: any) => {
   return async (dispatch: any) => {
@@ -11,6 +12,7 @@ export const fetchProducts = (queryString: any) => {
       dispatch({ type: Constants.FETCH_PRODUCTS_SUCCESS, payload });
     } catch (error) {
       dispatch({ type: Constants.FETCH_PRODUCTS_FAILURE, error });
+      handleModalState(true);
     }
   };
 };

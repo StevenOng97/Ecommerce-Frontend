@@ -37,3 +37,13 @@ export const authenticated = (data: any) => {
     dispatch({ type: Constants.AUTHENTICATED, payload: data });
   };
 };
+
+export const logOut = () => {
+  return async (dispatch: any) => {
+    dispatch({ type: Constants.LOGOUT });
+    setTimeout(() => {
+      localStorage.removeItem('authToken');
+      dispatch({ type: Constants.LOGOUT_SUCCESS });
+    }, 2000);
+  };
+};

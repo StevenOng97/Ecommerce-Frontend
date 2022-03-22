@@ -1,4 +1,4 @@
-import { Constants } from "../../constants/constant";
+import { Constants } from '../../constants/constant';
 
 const initialState = {
   isLoading: null,
@@ -57,6 +57,17 @@ const reducer = (state = initialState, action: any) => {
         ...state,
         product: null,
         productErr: action.error,
+      }
+
+    case Constants.LOGOUT:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case Constants.LOGOUT_SUCCESS:
+      return {
+        ...state,
         isLoading: false,
       };
     default:
