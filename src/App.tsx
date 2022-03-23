@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Loader from './components/Loader';
 import './main.scss';
-import LandingPage from './modules/landing-page';
-
 import 'react-phone-input-2/lib/style.css';
+import LandingPage from './modules/landing-page';
 import RegisterPage from './modules/register-page';
 import LoginPage from './modules/login-page';
+import Product from './modules/products-page/product-id-page';
 import { authenticated } from './redux/actions/auth';
 import Modal from './components/Modal';
 import { handleModalState } from './redux/actions/modal';
@@ -43,6 +43,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
+          <Route path="products/:id" element={<Product />} />
         </Routes>
       </AnimatePresence>
       <Modal showModal={showModal} closeBtnAction={modalActionBtn} />

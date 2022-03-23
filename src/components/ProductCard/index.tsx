@@ -1,7 +1,7 @@
 import './style.scss';
 import './responsive.scss';
 import Button from '../Button/Button';
-
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const animations = {
@@ -12,6 +12,7 @@ const animations = {
 
 const ProductCard = ({ card }: any) => {
   const {
+    _id,
     sale = '',
     isNew,
     priceAfterSale,
@@ -39,12 +40,14 @@ const ProductCard = ({ card }: any) => {
         </div>
       )}
       <div className="image__overlay">
-        <Button
-          context="REVIEW ITEM"
-          contextStyle="mb-0"
-          className="btn main-btn"
-          onClick={action}
-        />
+        <Link to={`/products/${_id}`}>
+          <Button
+            context="REVIEW ITEM"
+            contextStyle="mb-0"
+            className="btn main-btn"
+            onClick={action}
+          />
+        </Link>
       </div>
       {images.length > 0 && <img src={images[0]} alt="product" className="product-card-image" />}
       <p className="fw-bold text-center truncate">{title}</p>

@@ -1,20 +1,13 @@
-import ProductCard from '../../../../components/ProductCard';
 import './style.scss';
 import './responsive.scss';
-
-import Carousel from 'react-elastic-carousel';
-import {
-  faTruck,
-  faMoneyBill1,
-  faUndo,
-  faClock,
-  IconDefinition,
-} from '@fortawesome/free-solid-svg-icons';
-import BenefitCard from './components/BenefitCard';
 import { useEffect, useRef, useState } from 'react';
-import useOnScreen from '../../../../hooks/UseOnScreen';
 import { useSelector } from 'react-redux';
+import Carousel from 'react-elastic-carousel';
+import ProductCard from '../../../../components/ProductCard';
 import { modifyImagesArray } from '../../../../constants/helpers';
+import BenefitCard from '../../../../components/BenefitCard';
+import benefits from '../../../../mockData/benefits';
+import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const breakPoints = [
   { width: 1, itemsToShow: 1 },
@@ -22,12 +15,6 @@ const breakPoints = [
   { width: 550, itemsToShow: 3 },
   { width: 768, itemsToShow: 5 },
 ];
-
-interface Delivery {
-  title: string;
-  icon: IconDefinition;
-  text: string;
-}
 
 const BestSellerSection = ({ getItemToCart }: any) => {
   const productsFromApi = useSelector((state: any) => state.products.products);
@@ -39,7 +26,6 @@ const BestSellerSection = ({ getItemToCart }: any) => {
     const finalImages = imagesMapping.map((image: string[]) => {
       return modifyImagesArray(image);
     });
-
     const finalProduct = productsFromApi.map((product: any, i: any) => {
       return {
         ...product,
@@ -47,39 +33,14 @@ const BestSellerSection = ({ getItemToCart }: any) => {
         action: () => getItemToCart(product._id),
       };
     });
-
     setProducts(finalProduct);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productsFromApi]);
 
   const containerRef: any = useRef(null);
-
   const onMobileScreen = window.innerWidth <= 997;
   const rootMargin = onMobileScreen ? '0px' : '-200px';
   const onScreen = useOnScreen(containerRef, rootMargin, 0.1);
-
-  const benefits: Delivery[] = [
-    {
-      icon: faTruck,
-      title: 'FREE SHIPPING',
-      text: 'Suffered Alteration in Some Form',
-    },
-    {
-      icon: faMoneyBill1,
-      title: 'CASH ON DELIVERY',
-      text: 'The Internet Tend To Repeat',
-    },
-    {
-      icon: faUndo,
-      title: '45 DAYS RETURN',
-      text: 'Making it Look Like Readable',
-    },
-    {
-      icon: faClock,
-      title: 'OPENING ALL WEEK',
-      text: '8AM - 09PM',
-    },
-  ];
 
   const renderProduct = (): JSX.Element[] => {
     return products.map((product: any, i: any) => {

@@ -10,12 +10,10 @@
       width: 50%;
       word-break: break-word;
     }
-
     button {
       width: 140px;
     }
   }
-  height: 100vh;
   margin-top: 88px;
   background-size: cover;
   width: 100%;
@@ -27,5 +25,7 @@
 }
 
 @media (-webkit-video-playable-inline) {
-  video { display: initial; }
+  video {
+    display: initial;
+  }
 }
