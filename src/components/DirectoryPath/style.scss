@@ -1,0 +1,21 @@
+@import "../../scss/variables";
+@import "../../scss/animation";
+
+.directory-wrapper {
+    border-bottom: $container-border;
+}
+.directory-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+.directory-item {
+    text-transform: capitalize;
+}
+.directory-item:not(:first-child):before {
+    content: ">";
+    padding: 0 0.5rem;
+}
+.directory-item:last-child {
+    font-weight: 700;
+}
