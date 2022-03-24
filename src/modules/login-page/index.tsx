@@ -16,7 +16,7 @@ const LoginPage = () => {
   const token = useSelector((state: any) => state.auth.token);
   const [btnContext, setBtnContext] = useState<any>();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     if (isLoading) {
       setBtnContext(<ButtonLoader />);
@@ -91,9 +91,8 @@ const LoginPage = () => {
 
   return (
     <div
-      className={`login-page__container overflow-hidden${
-        isLoading ? ` disabled-page` : ''
-      }`}
+      className={`login-page__container overflow-hidden${isLoading ? ` disabled-page` : ''
+        }`}
     >
       <Layout>
         <div className="body__page">

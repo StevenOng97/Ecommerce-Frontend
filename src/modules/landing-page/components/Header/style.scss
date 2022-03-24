@@ -51,6 +51,28 @@
         }
       }
     }
+
+    .current-page {
+      position: relative;
+      text-decoration: none;
+    }
+    .active {
+      background: none;
+      border: none;
+      li {
+        color: $sliver;
+      }
+    }
+
+    .active::after {
+      content: "";
+      position: absolute;
+      left: -10%;
+      width: 120%;
+      margin-top: 5px;
+      border-bottom: 5px solid $main-color;
+      animation: revealFromLeft 0.5s;
+    }
   }
   .right-items-wrapper {
     width: 10rem;
