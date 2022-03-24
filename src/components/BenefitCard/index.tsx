@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import Icon from '../../../../../../components/Icon/Icon';
+import Icon from '../Icon/Icon';
 
 const BenefitCard = ({ card }: any) => {
   const { title, icon, text } = card;

@@ -53,7 +53,11 @@ const NewArrivals = ({ cardAction, getItemToCart, currentFilter }: any) => {
       value: 'accessories',
       action: () => cardAction('accessories'),
     },
-    { label: "MEN'S", value: 'men', action: () => cardAction('men') },
+    {
+      label: "MEN'S",
+      value: 'men',
+      action: () => cardAction('men')
+    },
   ];
 
   const renderCategoryCards = (): JSX.Element[] => {
