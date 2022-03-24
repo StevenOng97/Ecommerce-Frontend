@@ -12,6 +12,8 @@ import Product from './modules/products-page/product-id-page';
 import { authenticated } from './redux/actions/auth';
 import Modal from './components/Modal';
 import { handleModalState } from './redux/actions/modal';
+import Layout from './modules/main-layout';
+import ErrorPage from './modules/error-page';
 
 function App() {
   const loading = useSelector((state: any) => state.products.isLoading);
@@ -39,12 +41,15 @@ function App() {
     <div className={className}>
       <Loader loading={loading} />
       <AnimatePresence exitBeforeEnter>
+        <Layout>
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<LandingPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="products/:id" element={<Product />} />
+          <Route path="*" element={<ErrorPage/>}/>
         </Routes>
+        </Layout>
       </AnimatePresence>
       <Modal showModal={showModal} closeBtnAction={modalActionBtn} />
     </div>

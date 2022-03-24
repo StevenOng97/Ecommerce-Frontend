@@ -1,5 +1,4 @@
 import "./style.scss"
-import Layout from '../../main-layout'
 import { useParams } from "react-router-dom"
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,7 +20,6 @@ function Product() {
   }, []);
 
   return (
-    <Layout>
       <div className="container single-product-wrapper">
         {!isLoading && currentProduct &&
           <div>
@@ -30,7 +28,6 @@ function Product() {
           </div>
         }
       </div>
-    </Layout>
   )
 }
 

@@ -8,7 +8,6 @@ import './style.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchProducts } from '../../redux/actions/products';
-import Layout from '../main-layout';
 
 const LandingPage = () => {
   const [currentFilter, setCurrentFilter] = useState<string>('');
@@ -32,7 +31,6 @@ const LandingPage = () => {
 
   return (
     <div className="landing__page position-relative">
-      <Layout>
         <Main />
         <Category cardAction={cardAction} />
         <NewArrivals
@@ -43,7 +41,6 @@ const LandingPage = () => {
         <DealSection />
         <BestSellerSection getItemToCart={getItemToCart} />
         <Testimonials />
-      </Layout>
     </div>
   );
 };
