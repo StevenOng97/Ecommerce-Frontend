@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useRef, useState, useMemo } from 'react';
 import './style.scss';
 import './responsive.scss';
 import HeroImage from '../../../../assets/Hero1.png';
@@ -16,9 +16,9 @@ const Main = () => {
     setError(true);
     console.log(
       'Error ' +
-      videoRef.current.error.code +
-      '; details: ' +
-      videoRef.current.error.message
+        videoRef.current.error.code +
+        '; details: ' +
+        videoRef.current.error.message
     );
   };
 
@@ -57,4 +57,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default React.memo(Main);
