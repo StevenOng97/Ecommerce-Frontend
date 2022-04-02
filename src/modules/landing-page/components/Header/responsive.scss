@@ -57,6 +57,17 @@
     top: 5rem !important;
     left: 0 !important;
   }
+
+  .active {
+    background: none;
+    li {
+      color: $main-color !important;
+      font-weight: 700 !important;
+    }
+  }
+  .active::after {
+    display: none;
+  }
 }
 
 @media screen and (max-width: $mobile) {

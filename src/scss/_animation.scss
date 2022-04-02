@@ -96,3 +96,29 @@
   -webkit-animation-duration: 1s;
   -webkit-animation-fill-mode: both;
 }
+
+@keyframes revealFromLeft {
+  from {
+    width: 0%;
+    opacity: 0;
+  }
+
+  to {
+    width: 120%;
+    transition: opacity transform 1s ease-in;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes revealFromLeft {
+  from {
+    width: 0%;
+    opacity: 0;
+  }
+
+  to {
+    width: 120%;
+    transition: opacity transform 1s ease-in;
+    opacity: 1;
+  }
+}

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   faSearch,
   faUser,
@@ -13,7 +14,7 @@ import item3 from '../../../../assets/item3.png';
 import item4 from '../../../../assets/item4.png';
 import item5 from '../../../../assets/item5.png';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Card } from '../../../../interface/Card';
 import Icon from '../../../../components/Icon/Icon';
@@ -31,7 +32,12 @@ const Header = (props: any) => {
 
   const renderCenterItems = (): JSX.Element[] => {
     return data.map((item, i) => {
-      return <li key={i}>{item.toUpperCase()}</li>;
+      const urlToRedirect = item === 'home' ? '/' : `/${item}`
+      return (
+        <NavLink key={i} to={urlToRedirect} className="current-page">
+          <li>{item.toUpperCase()}</li>
+        </NavLink>
+      )
     });
   };
 
@@ -162,9 +168,9 @@ const Header = (props: any) => {
               </div>
             )
           }
-        </div >
-      </div >
-    </div >
+        </div>
+      </div>
+    </div>
   );
 };
 export default Header;

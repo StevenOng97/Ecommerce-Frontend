@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState, useMemo } from 'react';
 import './style.scss';
 import './responsive.scss';
 import HeroImage from '../../../../assets/Hero1.png';
-
 import useOnScreen from '../../../../hooks/UseOnScreen';
 
 const Main = () => {

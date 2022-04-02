@@ -1,7 +1,6 @@
 import "./style.scss"
-import Layout from '../../main-layout'
 import { useParams } from "react-router-dom"
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProductsById } from '../../../redux/actions/products';
 
@@ -21,16 +20,14 @@ function Product() {
   }, []);
 
   return (
-    <Layout>
       <div className="container single-product-wrapper">
         {!isLoading && currentProduct &&
           <div>
             <DirectoryPath currentProduct={currentProduct} />
-            <ProductDetail currentProduct={currentProduct}/>
+            <ProductDetail currentProduct={currentProduct} />
           </div>
-          }
+        }
       </div>
-    </Layout>
   )
 }
 

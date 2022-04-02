@@ -1,5 +1,4 @@
 import Form from '../../components/Form';
-import Layout from '../main-layout';
 import './style.scss';
 import { useForm } from 'react-hook-form';
 import FormInput from '../../components/FormInput';
@@ -158,7 +157,6 @@ const RegisterPage = () => {
         isLoading ? ` disabled-page` : ''
       }`}
     >
-      <Layout>
         <div className="body__page">
           <div className="foreground container d-flex align-items-center justify-content-center flex-column w-100 h-100">
             <Form submit={onSubmit} btnText={btnContext}>
@@ -179,7 +177,6 @@ const RegisterPage = () => {
             </Form>
           </div>
         </div>
-      </Layout>
     </div>
   );
 };
